@@ -1,0 +1,77 @@
+#! /bin/bash
+
+function listDir() {
+    path=$1
+    dir=`ls -D1 $path`
+    if [ $dir == $path ]; then
+        echo 0
+    else
+        echo $dir
+    fi
+    unset dir
+    unset path
+}
+
+UpCaseFunc() {
+    UpCaseStr=$(echo "$1" |tr [a-z] [A-Z])
+    return UpCaseStr
+}
+
+listAllDir() {
+    path=$1
+}
+
+UsagePrint() {
+    echo "wallchange Usage: wallchange INTERVAL wallPaperPath [ACTION]"
+    echo "    INTERVAL default is second, adding m after Num will be minutes"
+    echo "    ACTION should only be \"START\", \"NEXT\" or \"STOP\""
+    echo "    when the ACTION is \"STOP\", no other option is need."
+}
+
+# Action test
+#if [ -n $(echo $@|tr [a-z] [A-Z]|grep -o "START") ]
+
+if [ $(echo $1|tr [a-z] [A-Z]) == "STOP" ]; then
+    killall wallchange
+elif [ -z $1 ] || [ -z $2 ]; then
+    UsagePrint
+else
+    Action="none"
+    if [ -z $3 ]; then
+        Action="START"
+    else
+        if [ $(echo $3|tr [a-z] [A-Z]) == "START" ] || [ $(echo $3|tr [a-z] [A-Z]) == "NEXT" ]; then
+            Action="$(echo "$3"| tr [a-z] [A-Z])"
+        else
+            UsagePrint
+        fi
+    fi
+
+    cmd=$(which feh)
+    ChangingTime=$1
+    WallPaperPath=$2
+    #echo $(listDir $2)
+
+    if [[ $Action == "START" ]]; then
+        # useful start
+        while true;
+        do
+            #WallpaperIMG=$(ls $WallPaperPath |sed "s:^:`pwd`/:" |sed "/zip$/d"|shuf -n1)
+            WallpaperIMG=$(ls $WallPaperPath |sed "s:^:$WallPaperPath/:" |sed "/zip$/d"|shuf -n1)
+            #echo $WallpaperIMG
+            $cmd --bg-scale -Z $WallpaperIMG
+            unset WallpaperIMG
+            sleep $ChangingTime
+        done &
+        # useful end
+    elif [[ $Action == "NEXT" ]]; then
+        WallpaperIMG=$(ls $WallPaperPath |sed "s:^:$WallPaperPath/:" |sed "/zip$/d"|shuf -n1)
+        #echo $WallpaperIMG
+        $cmd --bg-scale -Z $WallpaperIMG
+        unset WallpaperIMG
+    else
+        UsagePrint
+    fi
+fi
+
+# vim: sw=4 sta sts=4

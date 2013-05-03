@@ -1,0 +1,375 @@
+# i3 config file (v4)
+#
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+#
+# This config file uses keycodes (bindsym) and was written for the QWERTY
+# layout.
+#
+# To get a config file with the same key positions, but for your current
+# layout, use the i3-config-wizard
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below. ISO 10646 = Unicode
+#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, if you need a lot of unicode glyphs or
+# right-to-left text rendering, you should instead use pango for rendering and
+# chose a FreeType font, such as:
+# font pango:DejaVu Sans Mono 9
+font pango:DejaVu Sans Mono,Terminal Bold Semi-Condensed 9.5
+
+# Environment setttings          {{{
+    # special keys
+    set $alt Mod4
+    set $mod Mod1
+    set $ctrl Ctrl
+    set $shift Shift
+
+    # monitors
+    set $mon_lap LVDS
+    set $mon_ext VGA-0
+    set $mon_hdmi hdmi-0
+
+    # misc
+    set $term urxvtc
+    set $editor vim
+    set $editor_gui gvim
+    set $browser firefox
+    #set $filem "urxvtc -e vifm"
+    set $filem_gui dolphin
+
+    # Wallpapers
+    #exec --no-startup-id feh --bg-max --no-fehbg ~/Documents/Pictures/wallpapers/Hotgirl/000000002-cute_girl.jpg
+    exec --no-startup-id feh --bg-max --no-fehbg ~/Pictures/git-cheat-sheet-large.png
+
+    # auto start 
+    exec --no-startup-id killall -9 fcitx
+    exec --no-startup-id killall -9 urxvtd
+    exec --no-startup-id killall -9 syndaemon
+    exec sleep 1
+    exec --no-startup-id urxvtd -q -o -f
+    exec setxkbmap -option ctrl:nocaps
+    exec --no-startup-id syndaemon -i 2 -dtk
+    exec --no-startup-id synclient TouchpadOff=$(synclient -l|grep -c 'TouchpadOff.*=.*0')
+    exec --no-startup-id fcitx -d &
+    exec --no-startup-id systemd --user &
+    exec --no-startup-id dropboxd &
+# }}}
+
+# General settings              {{{
+    hide_edge_borders both
+    floating_modifier $mod
+    default_orientation auto
+    #default_orientation horizontal|vertical
+    focus_follows_mouse no
+    #workspace_layout tabbed
+    # New Windows UI (new_window / new float <normal|1pixel|none|pixel>)
+    new_window normal
+    new_float normal
+    # use Mouse+$mod to drag floating windows to their wanted position
+    floating_modifier $mod
+    floating_minimum_size 75 x 50
+    floating_maximum_size -1 x -1
+    # Workspace setting
+    workspace_auto_back_and_forth yes
+    workspace "1: main" output $mon_lap
+    workspace "2: www" output $mon_lap
+    workspace "3: work" output $mon_lap
+    #workspace "4: media" output $mon_lap $mon_hdmi $mon_ext
+    workspace "4: media" output $mon_lap
+    workspace "5" output $mon_lap
+    workspace "6" output $mon_ext
+    workspace "7" output $mon_ext
+    workspace "8" output $mon_ext
+    workspace "9" output $mon_ext
+    workspace "10" output $mon_ext
+# }}}
+
+# assign windows                            {{{
+    assign [class="(?i)firefox"] "2: www"
+    assign [class="(?i)chromium"] "2: www"
+    assign [class="(?i)opera"] "2: www"
+    assign [class="(?i)mplayer"] "4: media"
+    assign [class="(?i)umplayer"] "4: media"
+    assign [class="(?i)vlc"] "4: media"
+    assign [class="(?i)virtualbox"] "5"
+    assign [class="(?i)Wine"] "5"
+    assign [class="(?i)XMind"] "3: work"
+#                                           }}}
+
+# floating windows {{{
+    for_window [class="(?i)firefox" instance="Download"] floating enable
+    #for_window [class="(?i)chromium"] floating enable
+    for_window [class="(?i)dolphin"] floating enable
+    for_window [class="(?i)gnuplot"] floating enable
+    for_window [class="(?i)gimp"] floating enable
+    #for_window [class="(?i)virtualbox"] floating enable
+    for_window [class="(?i)viewnior"] floating enable
+    for_window [class="(?i)display"] floating enable
+    for_window [class="(?i)7zfm"] floating enable
+    for_window [class="(?i)qipmsg"] floating enable
+    for_window [class="(?i)Wine"] floating enable
+    for_window [class="(?i)Key-mon"] floating enable
+# }}}
+
+# windows border setting                    {{{
+    for_window [class="(?i)urxvt"] border 1pixel
+    for_window [class="(?i)xterm"] border 1pixel
+    for_window [class="(?i)umplayer"] border none
+    for_window [class="(?i)Wine"] border none
+    for_window [class="(?i)Key-mon"] border none
+#                                           }}}
+
+# browsers use stack side                   {{{
+    for_window [class="(?i)virtualbox"] layout stacking
+    for_window [class="(?i)firefox" ] layout stacking
+    for_window [class="(?i)chromium" ] layout stacking
+#                                           }}}
+
+mode "resize" { #            {{{
+    # These bindings trigger as soon as you enter the resize mode
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym h           resize shrink width 5 px or 5 ppt
+    bindsym Left        resize shrink width 5 px or 5 ppt
+    bindsym j           resize grow height 5 px or 5 ppt
+    bindsym Down        resize grow height 5 px or 5 ppt
+    bindsym k           resize shrink height 5 px or 5 ppt
+    bindsym Up          resize shrink height 5 px or 5 ppt
+    bindsym l           resize grow width 5 px or 5 ppt
+    bindsym Right       resize grow width 5 px or 5 ppt
+    #bindsym semicolon   resize grow width 5 px or 5 ppt
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym q mode "default"
+    bindsym $ctrl+bracketleft mode "default"
+} #                    }}}
+bindsym $mod+r mode "resize"
+
+mode "launch" {
+    bindsym $shift+colon exec --no-startup-id dmenu_run -i -f -nb '#444444' -nf '#dddddd' -sb '#692E81' -fn 'DejaVu Sans Mono-11' -p 'Run:'
+    bindsym f exec $browser; workspace 2: www; mode "default"
+    bindsym d exec $filem_gui; mode "default"
+    bindsym v exec $editor_gui; mode "default"
+    bindsym c exec chromium; workspace 2: www; mode "default"
+    bindsym i exec qipmsg; mode "default"
+    bindsym m exec $term -e vimpc; mode "default"
+    bindsym s workspace 10; exec $term -e ssh -CNvD 7070 zcchen@205.185.120.172 -p 6535; mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $ctrl+bracketleft mode "default"
+}
+bindsym $mod+x mode "launch"
+
+mode "monitor_select" {
+    bindsym h exec --no-startup-id xrandr --output $mon_lap --auto --output $mon_ext --auto --left-of $mon_lap ; mode "default"
+    bindsym j exec --no-startup-id xrandr --output $mon_lap --auto --output $mon_ext --auto --below-of $mon_lap ; mode "default"
+    bindsym k exec --no-startup-id xrandr --output $mon_lap --auto --output $mon_ext --auto --above-of $mon_lap ; mode "default"
+    bindsym l exec --no-startup-id xrandr --output $mon_lap --auto --output $mon_ext --auto --right-of $mon_lap ; mode "default"
+    bindsym 1 exec --no-startup-id xrandr --output $mon_lap --auto --output $mon_ext --off --output $mon_hdmi --off; mode "default"
+    bindsym c exec --no-startup-id xrandr --output $mon_lap --auto --output $mon_ext --auto --same-as $mon_lap --output $mon_hdmi --auto --same-as $mon_lap ; mode "default"
+    bindsym $mod+h move container to output left; mode "default"
+    bindsym $mod+j move container to output down; mode "default"
+    bindsym $mod+k move container to output up; mode "default"
+    bindsym $mod+l move container to output right; mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $ctrl+bracketleft mode "default"
+}
+bindsym $mod+$shift+m mode "monitor_select"
+
+# mark  应该扩展成为一个mode。
+bindsym $mod+m exec --no-startup-id i3-msg mark 1
+bindsym $mod+grave exec --no-startup-id i3-msg '[con_mark="1"] focus'
+
+# key bindings {{{
+    # keyboard
+    bindcode $ctrl+37 exec --no-startup-id setxkbmap -option ctrl:nocaps
+    # Terminal
+    bindsym $mod+Return exec --no-startup-id $term
+    bindsym $mod+$shift+Return exec --no-startup-id $term -cd `pwd`
+
+    # Editor
+    bindsym $mod+Escape exec --no-startup-id $term -e i3-sensible-editor
+
+    # dmenu
+    bindsym $mod+d exec --no-startup-id dmenu_run -i -f -nb '#444444' -nf '#dddddd' -sb '#692E81' -fn 'DejaVu Sans Mono-11' -p 'Run:'
+    #bindsym $mod+d exec --no-startup-id dmenu_run -i 
+    #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+    # volume and Xf86 keys
+    # pulse
+    #bindsym XF86AudioMute exec mute_toggle
+    #bindsym XF86AudioLowerVolume exec vol_down
+    #bindsym XF86AudioRaiseVolume exec vol_up
+    # Alsa
+    bindsym XF86AudioMute exec amixer set Master toggle
+    bindsym XF86AudioLowerVolume exec amixer set Master 5%-
+    bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
+    #bindsym XF86WLAN
+    bindsym XF86Sleep exec i3lock -d -c 444444
+    bindsym XF86Tools exec --no-startup-id synclient TouchpadOff=$(synclient -l|grep -c 'TouchpadOff.*=.*0')
+    # lock screen
+    bindsym $alt+$mod+$shift+l exec i3lock -d -c 444444
+
+    # Screenshot
+    bindsym Print exec --no-startup-id scrot -e 'mv $f ~/Documents/Pictures/screenshot/ 2>/dev/null'
+
+    # split in horizontal orientation (default $mod+h)
+    bindsym $mod+semicolon split h
+    #bindsym $mod+h split h
+    # split in vertical orientation (default $mod+v)
+    bindsym $mod+apostrophe split v
+
+    # i3 config keys {{{
+        # reload the configuration file
+        bindsym $mod+$shift+c reload
+        # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+        bindsym $mod+$shift+r restart
+        # exit i3 (logs you out of your X session)
+        bindsym $mod+$shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+    # }}}
+
+    # container setting {{{
+        # change container layout (stacked, tabbed, toggle split)
+        bindsym $mod+s layout stacking
+        bindsym $mod+w layout tabbed
+        bindsym $mod+e layout toggle split
+        # toggle tiling / floating
+        bindsym $mod+$shift+space floating toggle
+    # }}}
+
+    # workspace setting {{{
+        # switch to workspace
+        bindsym $mod+1 workspace 1: main
+        bindsym $mod+2 workspace 2: www
+        bindsym $mod+3 workspace 3: work
+        bindsym $mod+4 workspace 4: media
+        bindsym $mod+5 workspace 5
+        bindsym $mod+6 workspace 6
+        bindsym $mod+7 workspace 7
+        bindsym $mod+8 workspace 8
+        bindsym $mod+9 workspace 9
+        bindsym $mod+0 workspace 10
+
+        # move focused container to workspace
+        bindsym $mod+$shift+1 move container to workspace 1: main
+        bindsym $mod+$shift+2 move container to workspace 2: www
+        bindsym $mod+$shift+3 move container to workspace 3: work
+        bindsym $mod+$shift+4 move container to workspace 4: media
+        bindsym $mod+$shift+5 move container to workspace 5
+        bindsym $mod+$shift+6 move container to workspace 6
+        bindsym $mod+$shift+7 move container to workspace 7
+        bindsym $mod+$shift+8 move container to workspace 8
+        bindsym $mod+$shift+9 move container to workspace 9
+        bindsym $mod+$shift+0 move container to workspace 10
+
+        # cycle through workspace
+        bindsym $mod+Tab workspace next
+    # }}}
+
+    # focus setting {{{
+        # change focus
+        bindsym $mod+h focus left
+        bindsym $mod+Left focus left
+        bindsym $mod+j focus down
+        bindsym $mod+Down focus down
+        bindsym $mod+k focus up
+        bindsym $mod+Up focus up
+        bindsym $mod+l focus right
+        bindsym $mod+Right focus right
+        #bindsym $mod+semicolon focus right
+
+        # move focused window
+        bindsym $mod+$shift+h move left
+        bindsym $mod+$shift+Left move left
+        bindsym $mod+$shift+j move down
+        bindsym $mod+$shift+Down move down
+        bindsym $mod+$shift+k move up
+        bindsym $mod+$shift+Up move up
+        bindsym $mod+$shift+l move right
+        bindsym $mod+$shift+Right move right
+        #bindsym $mod+$shift+semicolon move right
+
+        # switch between the current and the previously focused one
+        #bindsym $mod+Tab focus back_and_forth
+
+        # switch border types <none|1pixel|normal>
+        bindsym $mod+b border toggle
+
+        # focus the parent container
+        bindsym $mod+a focus parent
+        # focus the child container
+        bindsym $mod+c focus child
+
+        # enter fullscreen mode for the focused container
+        bindsym $mod+f fullscreen
+        # change focus between tiling / floating windows
+        bindsym $mod+space focus mode_toggle
+
+        # kill focused window
+        bindsym $mod+$shift+q kill
+        bindsym $mod+q kill
+    # }}}
+# }}}
+
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+    position top
+    output $mon_lap
+    output $mon_ext
+    output $mon_hdmi
+    #mode default
+    workspace_buttons yes
+    tray_output none
+    font xft:DejaVu Sans Mono,Bold 9
+        status_command i3status --config ~/.i3/i3status-top.conf
+    colors {
+        background #02000f
+        statusline #ffffef
+        focused_workspace    #ffffee #285576
+        active_workspace    #ffffee #333333
+        inactive_workspace    #888888 #222222
+        urgent_workspace    #fffeee #900000
+    }
+}
+bar {
+    position bottom
+    output $mon_lap
+    output $mon_ext
+    output $mon_hdmi
+    workspace_buttons none
+    tray_output primary
+    font xft:DejaVu Sans Mono,Bold 9
+        status_command i3status --config ~/.i3/i3status-buttom.conf
+    colors {
+        background #02000f
+        statusline #ffffef
+        focused_workspace    #ffffee #285576
+        active_workspace    #ffffee #333333
+        inactive_workspace    #888888 #222222
+        urgent_workspace    #fffeee #900000
+    }
+}
+
+
+#######################################################################
+# automatically start i3-config-wizard to offer the user to create a
+# keysym-based config which used his favorite modifier (alt or windows)
+#
+# i3-config-wizard will not launch if there already is a config file
+# in ~/.i3/config.
+#
+# Please remove the following exec line:
+#######################################################################
+exec i3-config-wizard
+
+# vim:softtabstop=4 smarttab sw=4
