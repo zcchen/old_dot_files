@@ -116,14 +116,6 @@ set autochdir       " change working dir when open files.
 set hidden          " A buffer becomes hidden when it is abandoned
 set formatoptions+=B    " No space when joining two lines of Chinese together
 set formatoptions+=m
-"" --------- autocmd command -------------                                 {{{
-" auto reload vimrc when editing it
-autocmd! bufwritepost .vimrc source $MYVIMRC
-" 打开文件后自动定位上次光标的位置
-autocmd BufReadPost *
-\   if line("'\"") > 1 && line("'\"") <= line("$")
-\|      exe "normal! g`\""
-\|  endif           "                                                      }}}
 "--------- list and StatusLine -------------                               {{{
 set number          "自动设置行号
 set foldcolumn=2
@@ -420,6 +412,14 @@ colorscheme molokai
 autocmd! BufReadPost,ColorScheme,VimEnter,WinEnter * call MolokaiTransp()
 "                                                                          }}}
 " ==========================                                               }}}
+"" --------- autocmd command -------------                                 {{{
+" auto reload vimrc when editing it
+autocmd! bufwritepost .vimrc source $MYVIMRC
+" 打开文件后自动定位上次光标的位置
+autocmd BufReadPost *
+\   if line("'\"") > 1 && line("'\"") <= line("$")
+\|      exe "normal! g`\""
+\|  endif           "                                                      }}}
 
 " ===== Personal Function ======                                           {{{
 function! MolokaiTransp()

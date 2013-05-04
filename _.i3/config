@@ -196,6 +196,7 @@ bindsym $mod+grave exec --no-startup-id i3-msg '[con_mark="1"] focus'
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $ctrl+bracketleft mode "default"
+        bindcode $ctrl+66 mode "default"
     }
     bindcode $ctrl+66 mode "no_caps"
     # Terminal
