@@ -101,7 +101,7 @@
     ! transpartent
         URxvt*.depth: 32
         URxvt*.transparent: true
-        URxvt*.shading: 28
+        URxvt*.shading: 30
     ! other
         ! Rxvt.preditType:Root
         ! URxvt*.perl-ext-common: default,tabbed

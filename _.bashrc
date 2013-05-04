@@ -20,6 +20,7 @@ export EDITOR=vim
 
 alias v='vim'
 alias vimrc='vim ~/.vimrc'
+alias ctags='ctags --c++-kinds=+p --fields=+iaS --extra=+q'
 
 alias pacman='sudo pacman'
 #alias wine="env LANG=en_US.UTF-8 wine"
