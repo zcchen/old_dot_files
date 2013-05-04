@@ -190,7 +190,14 @@ bindsym $mod+grave exec --no-startup-id i3-msg '[con_mark="1"] focus'
 
 # key bindings {{{
     # keyboard
-    bindcode $ctrl+37 exec --no-startup-id setxkbmap -option ctrl:nocaps
+    #bindcode $ctrl+66 exec --no-startup-id setxkbmap -option ctrl:nocaps
+    mode "no_caps" {
+        bindcode 66 exec --no-startup-id setxkbmap -option ctrl:nocaps;mode "default"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $ctrl+bracketleft mode "default"
+    }
+    bindcode $ctrl+66 mode "no_caps"
     # Terminal
     bindsym $mod+Return exec --no-startup-id $term
     bindsym $mod+$shift+Return exec --no-startup-id $term -cd `pwd`
