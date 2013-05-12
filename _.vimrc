@@ -104,6 +104,7 @@ map <Right> <NOP>
 " ===========================================                              }}}
 
 "" =========== vimrc ===========                                           {{{
+set splitright
 set history =50
 " allow backspacing over everything in insert mode, gvim need this...
 set backspace=indent,eol,start
@@ -248,7 +249,7 @@ cabbrev W w
 " ====================================                                     }}}
 
 " =========== developing language =================                        {{{
-set autoindent              " 自动注释
+set autoindent              " 自动缩进
 set completeopt+=longest    "让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
 "离开插入模式后自动关闭预览窗口
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif

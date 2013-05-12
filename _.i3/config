@@ -36,7 +36,7 @@ font pango:DejaVu Sans Mono,Terminal Bold Semi-Condensed 9.5
     set $editor_gui gvim
     set $browser firefox
     #set $filem "urxvtc -e vifm"
-    set $filem_gui dolphin
+    set $filem_gui spacefm
 
     # Wallpapers
     #exec --no-startup-id feh --bg-max --no-fehbg ~/Documents/Pictures/wallpapers/Hotgirl/000000002-cute_girl.jpg
@@ -100,7 +100,7 @@ font pango:DejaVu Sans Mono,Terminal Bold Semi-Condensed 9.5
 # floating windows {{{
     for_window [class="(?i)firefox" instance="Download"] floating enable
     #for_window [class="(?i)chromium"] floating enable
-    for_window [class="(?i)dolphin"] floating enable
+    for_window [class="(?i)spacefm"] floating enable
     for_window [class="(?i)gnuplot"] floating enable
     for_window [class="(?i)gimp"] floating enable
     #for_window [class="(?i)virtualbox"] floating enable
