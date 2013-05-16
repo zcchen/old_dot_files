@@ -18,6 +18,8 @@ export PATH="$PATH:/opt/dassault-systemes/draftsight/bin/:"
 
 export EDITOR=vim
 #export USE_CCACHE=1
+#python Docs
+export PYTHONDOCS=/usr/share/doc/python2/html/
 
 alias v='vim'
 alias vimrc='vim ~/.vimrc'

@@ -78,6 +78,8 @@ Bundle 'vim-scripts/fcitx.vim'
 Bundle 'DoxygenToolkit.vim'
 " ===== Other =====
 Bundle 'yuratomo/w3m.vim'
+" search
+Bundle 'ack.vim'
 " ===== color =====
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'vim-scripts/Colour-Sampler-Pack'

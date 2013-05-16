@@ -21,10 +21,9 @@ setxkbmap -option ctrl:nocaps
 #export QT_IM_MODULE="fcitx"
 #export XMODIFIERS="@im=fcitx"
 
-export GTK_IM_MODULE=fcitx
 export XMODIFIERS='@im=fcitx'
-export XIM="fcitx"
-export XINPUT="xim"
+#export XIM="fcitx"
+#export XINPUT="xim"
 export XIM_PROGRAM="fcitx -d"
 export QT_IM_MODULE=fcitx
-
+export GTK_IM_MODULE=fcitx

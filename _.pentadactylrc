@@ -11,6 +11,10 @@ highlight -append Hint text-transform:uppercase; font-size: 9pt !important;
 " move more quickly
 map -modes=n,v -silent -builtin j 5j
 map -modes=n,v -silent -builtin k 5k
+map -modes=i,n,v -silent -builtin <C-c> <C-v><C-c>
+imap -silent -builtin <C-x> <C-v><C-x>
+imap -silent -builtin <C-v> <C-v><C-v>
+imap -silent -builtin <C-a> <C-v><C-a>
 imap -builtin -silent jk <esc>
 map -modes=c -builtin <C-n> <Down>
 map -modes=c -builtin <C-p> <Up>
