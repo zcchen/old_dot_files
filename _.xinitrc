@@ -14,6 +14,7 @@ setxkbmap -option ctrl:nocaps
 #synclient TouchpadOff=$(synclient -l|grep -c 'TouchpadOff.*=.*0')
 
 /usr/bin/start-pulseaudio-x11
+killall mpd && mpd
 
 #fcitx -d
 

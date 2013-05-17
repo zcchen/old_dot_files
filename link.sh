@@ -7,9 +7,11 @@ rmcmd="rm "
 
 ignoreFiles=(
     _.ssh-config
+    _.zathurarc
 )
 ignoreFileTargets=(
     ~/.ssh/config
+    ~/.config/zathura/zathurarc
 )
 
 ignoreLink() {            # Generate the sed script to ignore some files
@@ -51,7 +53,7 @@ otherLink() {
             if [ -f ${ignoreFiles[$i]} ];then
                 mkdir -p $(dirname ${ignoreFileTargets[$i]} )
                 if [[ $1 = "link" ]]; then
-                    ln -s "`pwd`/${ignoreFiles[$i]} " ${ignoreFileTargets[$i]}
+                    ln -s "`pwd`/${ignoreFiles[$i]}" ${ignoreFileTargets[$i]}
                 elif [[ $1 = "remove" ]]; then
                     rm ${ignoreFileTargets[$i]}
                 fi
