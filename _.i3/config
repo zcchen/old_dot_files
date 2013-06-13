@@ -39,13 +39,13 @@ font pango:DejaVu Sans Mono,Terminal Bold Semi-Condensed 9.5
     set $filem_gui spacefm
 
     # Wallpapers
-    #exec --no-startup-id feh --bg-max --no-fehbg ~/Documents/Pictures/wallpapers/Hotgirl/000000002-cute_girl.jpg
     exec --no-startup-id feh --bg-max --no-fehbg ~/Pictures/git-cheat-sheet-large.png
 
     # auto start 
     exec --no-startup-id killall -9 fcitx
     exec --no-startup-id killall -9 urxvtd
     exec --no-startup-id killall -9 syndaemon
+    exec --no-startup-id killall -9 mpd
     exec sleep 1
     exec --no-startup-id urxvtd -q -o -f
     exec setxkbmap -option ctrl:nocaps
@@ -54,6 +54,8 @@ font pango:DejaVu Sans Mono,Terminal Bold Semi-Condensed 9.5
     exec --no-startup-id fcitx -d &
     exec --no-startup-id systemd --user &
     exec --no-startup-id dropboxd &
+    exec --no-startup-id mpd &
+    exec --no-startup-id keynav &
 # }}}
 
 # General settings              {{{
@@ -158,13 +160,24 @@ mode "launch" {
     bindsym c exec chromium; workspace 2: www; mode "default"
     bindsym i exec qipmsg; mode "default"
     bindsym m exec $term -e vimpc; mode "default"
-    bindsym s workspace 10; exec $term -e ssh -CNvD 7070 zcchen@205.185.120.172 -p 6535; mode "default"
+    bindsym r exec $term -e ranger; mode "default"
+    bindsym t exec xterm vit; mode "default"
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
     bindsym $ctrl+bracketleft mode "default"
 }
 bindsym $mod+x mode "launch"
+
+mode "Mouse Left/Right" {
+    bindsym l exec --no-startup-id xmodmap -e 'pointer = 3 2 1'; mode "default"
+    bindsym r exec --no-startup-id xmodmap -e 'pointer = 1 2 3'; mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $ctrl+bracketleft mode "default"
+}
+bindsym $mod+p mode "Mouse Left/Right"
 
 mode "monitor_select" {
     bindsym h exec --no-startup-id xrandr --output $mon_lap --auto --output $mon_ext --auto --left-of $mon_lap ; mode "default"
@@ -221,7 +234,7 @@ bindsym $mod+grave exec --no-startup-id i3-msg '[con_mark="1"] focus'
     bindsym XF86AudioLowerVolume exec amixer set Master 5%-
     bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
     #bindsym XF86WLAN
-    bindsym XF86WLAN exec --no-startup-id synclient TouchpadOff=$(synclient -l|grep -c 'TouchpadOff.*=.*0')
+    bindsym XF86Mail exec --no-startup-id synclient TouchpadOff=$(synclient -l|grep -c 'TouchpadOff.*=.*0')
     bindsym XF86Sleep exec i3lock -d -c 444444
     bindsym XF86Tools exec --no-startup-id synclient TouchpadOff=$(synclient -l|grep -c 'TouchpadOff.*=.*0')
     # lock screen
@@ -357,7 +370,10 @@ bar {
     output $mon_ext
     output $mon_hdmi
     workspace_buttons none
-    tray_output primary
+    #tray_output primary
+    tray_output $mon_lap
+    #tray_output $mon_ext
+    #tray_output $mon_hdmi
     font xft:DejaVu Sans Mono,Bold 9
         status_command i3status --config ~/.i3/i3status-buttom.conf
     colors {

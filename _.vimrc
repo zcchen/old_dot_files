@@ -51,6 +51,8 @@ Bundle 'simplefold'
 Bundle 'vim-scripts/octave.vim--'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'matchit.zip'
+Bundle 'DoxygenToolkit.vim'
+Bundle 'DoxyGen-Syntax'
 " ===== text =====
 "Bundle 'vimwiki'
 "Bundle 'VOoM'
