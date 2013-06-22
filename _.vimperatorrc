@@ -1,0 +1,18 @@
+"翻页快捷键 [[ ]]
+"这里涉及中文，要注意编码格式
+"set nextpattern+=^下一页$
+"set previouspattern+=^上一页$
+set nextpattern=\s*下一页|下一张|下页\s*,\bnext\b,^>$,^>>$,\bmore\b
+set previouspattern=\s*上一页|上一张|上页\s*,\bprev|previous\b,^<$,^<<$
+
+set tabnumbers
+
+noremap j 3j
+noremap k 3k
+
+set hintchars=;fjdkghsla
+highlight -append Hint text-transform:uppercase; font-size: 9pt !important;
+
+" 还差中文输入法打开的时候，hints下的自动关闭
+
+" vim: ft=vim

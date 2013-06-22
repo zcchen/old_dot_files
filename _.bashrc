@@ -40,8 +40,8 @@ alias aurploader='aurploader -nk'
 # set bash completion
 source /usr/share/git/completion/git-completion.bash        #git
 source /usr/share/doc/pkgfile/command-not-found.bash        #pkgfile
-complete -cf {pacman,packer}
-complete -cf {git,sudo,proxychains,systemctl}
+#complete -cf {pacman,packer}
+complete -cf {sudo,proxychains,systemctl}
 
 #export GTK_IM_MODULE=ibus
 #export XMODIFIERS=@im=ibus
@@ -55,3 +55,7 @@ complete -cf {git,sudo,proxychains,systemctl}
 alias clockUpdate='sudo ntpd -qg && sudo hwclock -w'
 alias pwdcd="pwd | xsel -ib"
 alias cdpwd="cd $(xsel -ob)"
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize

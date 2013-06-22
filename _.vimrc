@@ -83,6 +83,7 @@ Bundle 'yuratomo/w3m.vim'
 " search
 Bundle 'ack.vim'
 " ===== color =====
+Bundle 'lilydjwg/colorizer'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'vim-scripts/Colour-Sampler-Pack'
 Bundle 'altercation/vim-colors-solarized.git'
@@ -424,7 +425,9 @@ autocmd! bufwritepost .vimrc source $MYVIMRC
 autocmd BufReadPost *
 \   if line("'\"") > 1 && line("'\"") <= line("$")
 \|      exe "normal! g`\""
-\|  endif           "                                                      }}}
+\|  endif
+autocmd FileType text set textwidth=0
+"                                                                          }}}
 
 " ===== Personal Function ======                                           {{{
 function! MolokaiTransp()
