@@ -54,7 +54,7 @@ Bundle 'matchit.zip'
 Bundle 'DoxygenToolkit.vim'
 Bundle 'DoxyGen-Syntax'
 " ===== text =====
-"Bundle 'vimwiki'
+Bundle 'vimwiki'
 "Bundle 'VOoM'
 "Bundle 'samsonw/vim-task'
 "Bundle 'cuteTodoList'
@@ -336,7 +336,7 @@ let g:nerdtree_tabs_open_on_gui_startup=0     " Open NERDTree on gvim/macvim sta
 let g:nerdtree_tabs_open_on_console_startup=0 " Open NERDTree on console vim startup     " }}}
 "------- ctags & Tagbar / TagList --------------                           {{{
 set tags=tags,tags;
-nmap <leader>ctags   :!ctags --c++-kinds=+p --fields=+iaS --extra=+q * -R
+nmap <leader>ctags   :!ctags --c++-kinds=+p --fields=+iaS --extra=+q -R *
 let g:tagbar_ctags_bin = '/usr/bin/ctags'
 let g:tabbar_autoshowtag =1
 let g:tagbar_autofocus = 0

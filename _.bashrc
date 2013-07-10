@@ -59,3 +59,7 @@ alias cdpwd="cd $(xsel -ob)"
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
+
+#go init
+mkdir -p /tmp/go
+export GOPATH=/tmp/go
