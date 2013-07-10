@@ -29,8 +29,8 @@ js << EOF
                                     args);
     }
     around(events, 'onKeyPress', function (next, [event]) {
-        if (io.system('fcitx-remote') == 2) {
-            if (modes.extended & modes.HINTS ) {
+        if (modes.extended & modes.HINTS ) {
+            if (io.system('fcitx-remote') == 2) {
                 io.system('fcitx-remote -c');
             }
         }
