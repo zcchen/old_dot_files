@@ -8,35 +8,26 @@ set previouspattern=\s*上一页|上一张|上一篇|上页|前页\s*,^\\bprev|p
 set tabnumbers
 set novb
 
-noremap j 3j
-noremap k 3k
+noremap j 5j
+noremap k 5k
+
+let mapleader = "\"
 
 set hintchars=;fjdkghsla
 highlight -append Hint text-transform:uppercase; font-size: 9pt !important;
 
+" 中文输入法打开的时候，hints下的自动关闭
+noremap <silent> f :!fcitx-remote -c<cr>qf
+noremap <silent> F :!fcitx-remote -c<cr>qF
+noremap <silent> : :!fcitx-remote -c<cr>q:
+
+noremap <silent> <leader>apa :ap a<cr>
+noremap <silent> <leader>apd :ap d<cr>
+noremap <silent> <leader>apg :ap g<cr>
+
 loadplugins
 
-" 还差中文输入法打开的时候，hints下的自动关闭
-" 现在是，只要多按一次空格就关闭
 js << EOF
-(function () {
-    function around (obj, name, func) {
-        let next = obj[name];
-        obj[name] = function ()
-            let (self = this, args = arguments)
-                func.call(self,
-                                    function () next.apply(self, args),
-                                    args);
-    }
-    around(events, 'onKeyPress', function (next, [event]) {
-        if (modes.extended & modes.HINTS ) {
-            if (io.system('fcitx-remote') == 2) {
-                io.system('fcitx-remote -c');
-            }
-        }
-        return next();
-    })
-})()
 EOF
 
 " vim: ft=vim

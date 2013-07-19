@@ -14,6 +14,7 @@ alias l=ls
 PS1='\[\033[01;32m\]\t \u \[\033[01;34m\]\w\$\[\033[00m\] '
 export PATH="$PATH:$HOME/.bash:"
 export PATH="$PATH:/opt/dassault-systemes/draftsight/bin/:"
+export PATH="$PATH:$HOME/.cabal/bin/:"
 #export PATH="$PATH:/opt/android-sdk/tools:/opt/java6/bin:"
 
 export EDITOR=vim

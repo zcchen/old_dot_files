@@ -41,7 +41,10 @@ Bundle 'msanders/snipmate.vim'
 " ===== syntax =====
 Bundle 'sudar/vim-arduino-snippets'
 Bundle 'Arduino-syntax-file'
-Bundle 'hallison/vim-markdown'
+"Bundle 'hallison/vim-markdown'
+"Bundle 'vim-pandoc/vim-pandoc'
+Bundle 'pdc.vim'
+Bundle 'rest.vim'
 Bundle 'scrooloose/syntastic'
 "Bundle 'ervandew/supertab'
 "Bundle 'AutoFold.vim'
@@ -82,6 +85,10 @@ Bundle 'DoxygenToolkit.vim'
 Bundle 'yuratomo/w3m.vim'
 " search
 Bundle 'ack.vim'
+" files
+Bundle 'ctrlp.vim'
+Bundle 'yuratomo/gmail.vim'
+Bundle 'shougo/vimproc'
 " ===== color =====
 Bundle 'lilydjwg/colorizer'
 Bundle 'Lokaltog/vim-powerline'
@@ -187,6 +194,12 @@ nmap <leader>tbe :tabedit           |" Open a new tab with file     "      }}}
     nnoremap <C-j> <C-w>j|"<C-w>_<C-w>10-
     nnoremap <C-k> <C-w>k|"<C-w>_<C-w>10-
     nnoremap <C-l> <C-w>l|"<C-w>_<C-w>10-     "                   }}}
+" --------------undo ------------------------------------------------------{{{
+set undodir=~/.vim/undodir
+set undofile
+set undolevels=1000 "maximum number of changes that can be undone
+set undoreload=10000 "maximum number lines to save for undo on a buffer reload
+"                                                                          }}}
 "================================                                          }}}
 
 ""=========== encoding =============                                       {{{
@@ -427,6 +440,9 @@ autocmd BufReadPost *
 \|      exe "normal! g`\""
 \|  endif
 autocmd FileType text set textwidth=0
+autocmd BufNewFile,BufEnter *.md set ft=pandoc
+autocmd FileType pandoc setlocal textwidth=0 "list    " 显示行标致位
+autocmd BufNewFile,BufEnter *.tmp set textwidth=0
 "                                                                          }}}
 
 " ===== Personal Function ======                                           {{{

@@ -25,5 +25,5 @@ export XMODIFIERS='@im=fcitx'
 #export XIM="fcitx"
 #export XINPUT="xim"
 export XIM_PROGRAM="fcitx -d"
-export QT_IM_MODULE=fcitx
-export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE="fcitx"
+export GTK_IM_MODULE="fcitx"
