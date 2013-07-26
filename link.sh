@@ -8,10 +8,12 @@ rmcmd="rm "
 ignoreFiles=(
     _.ssh-config
     _.zathurarc
+    _.vim_myPlugins
 )
 ignoreFileTargets=(
     ~/.ssh/config
     ~/.config/zathura/zathurarc
+    ~/.vim/myPlugins
 )
 
 ignoreLink() {            # Generate the sed script to ignore some files

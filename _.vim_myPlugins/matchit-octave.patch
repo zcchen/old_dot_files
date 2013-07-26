@@ -1,0 +1,13 @@
+--- matchit.vim	2012-12-24 10:09:44.536948170 +0800
++++ matchit.vim-new	2012-12-24 10:15:44.548041539 +0800
+@@ -807,6 +807,10 @@
+   return skip
+ endfun
+ 
++let s:conditionalEnd = '\(([^()]*\)\@!\<end\>\([^()]*)\)\@!'
++autocmd FileType octave let b:match_words = '\<if\>\|\<while\>\|\<for\>\|\<switch\>:' .
++       \ s:conditionalEnd . ',\<if\>:\<elseif\>:\<else\>:' . s:conditionalEnd
++
+ let &cpo = s:save_cpo
+ 
+ " vim:sts=2:sw=2:

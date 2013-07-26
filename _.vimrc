@@ -303,7 +303,7 @@ source ~/.vim/myPlugins/LanguageToolUpdate.vim
 source ~/.vim/myPlugins/escalt.vim
 set ttimeoutlen =10
 "" ------------ snippet quotation --------------
-source ~/.vim/myPlugins/snippets.vim
+source ~/.vim/myPlugins/snippetsPatch.vim
 "" ------------ a.vim ---------------------
 "<Leader>ih switches to file under cursor
 "<Leader>is switches to the alternate file of file under cursor

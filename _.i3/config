@@ -231,8 +231,11 @@ bindsym $mod+grave exec --no-startup-id i3-msg '[con_mark="1"] focus'
     #bindsym XF86AudioRaiseVolume exec vol_up
     # Alsa
     bindsym XF86AudioMute exec amixer set Master toggle
-    bindsym XF86AudioLowerVolume exec amixer set Master 5%-
-    bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
+    bindsym XF86AudioLowerVolume exec amixer set Master 3%-
+    bindsym XF86AudioRaiseVolume exec amixer set Master 3%+
+    bindsym $mod+F8 exec amixer set Master toggle
+    bindsym $mod+F9 exec amixer set Master 3%-
+    bindsym $mod+F10 exec amixer set Master 3%+
     #bindsym XF86WLAN
     bindsym XF86Mail exec --no-startup-id synclient TouchpadOff=$(synclient -l|grep -c 'TouchpadOff.*=.*0')
     bindsym XF86Sleep exec i3lock -d -c 444444
