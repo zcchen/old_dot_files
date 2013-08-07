@@ -42,8 +42,7 @@ Bundle 'msanders/snipmate.vim'
 Bundle 'sudar/vim-arduino-snippets'
 Bundle 'Arduino-syntax-file'
 "Bundle 'hallison/vim-markdown'
-"Bundle 'vim-pandoc/vim-pandoc'
-Bundle 'pdc.vim'
+Bundle 'vim-pandoc/vim-pandoc'
 Bundle 'rest.vim'
 Bundle 'scrooloose/syntastic'
 "Bundle 'ervandew/supertab'
@@ -56,8 +55,10 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'matchit.zip'
 Bundle 'DoxygenToolkit.vim'
 Bundle 'DoxyGen-Syntax'
+"Bundle 'cscope_macros.vim'
+Bundle 'brookhong/cscope.vim'
 " ===== text =====
-Bundle 'vimwiki'
+"Bundle 'vimwiki'
 "Bundle 'VOoM'
 "Bundle 'samsonw/vim-task'
 "Bundle 'cuteTodoList'
@@ -214,7 +215,8 @@ if has('multi_byte') && v:version > 601
     endif
 endif
 "" --------- Language and Spell ------------
-map <A-s> :set spell! <CR>
+"map <A-s> :set spell! <CR>
+map <leader>sp :set spell! <CR>
 "map! <A-s> <C-o>:set spell!<CR>
 set spelllang =en_us       "if need more dictionaries, add more.
 "" =================================                                       }}}
@@ -304,6 +306,8 @@ source ~/.vim/myPlugins/escalt.vim
 set ttimeoutlen =10
 "" ------------ snippet quotation --------------
 source ~/.vim/myPlugins/snippetsPatch.vim
+"" ------------ cscope Quickfix mode --------------
+source ~/.vim/myPlugins/cscopeQuickfix.vim
 "" ------------ a.vim ---------------------
 "<Leader>ih switches to file under cursor
 "<Leader>is switches to the alternate file of file under cursor
@@ -398,6 +402,9 @@ let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_auto_loc_list=2
 let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+let g:syntastic_enable_highlighting=1
+let g:syntastic_ignore_files=['^/usr/include/', '\c\.h$']
+let g:syntastic_c_include_dirs = [ '/usr/avr/include/']
 map <leader>tst     :SyntasticToggleMode <CR>
 map <leader>tsc     :SyntasticCheck <CR>
 " see :h Syntastic for more details                                        }}}
@@ -411,6 +418,8 @@ let g:fencview_autodetect=0     "                                          }}}
 nmap <leader>sk :call ToggleSketch() <CR>
 " ---------- Octave / matlab ----------------                               {{{
 autocmd FileType matlab setlocal keywordprg=info\ octave\ --vi-keys\ --index-search     " }}}
+" Pyclewn 调试 C 类程序，依此执行 :Pyclewn :Cinferiortty 然后就是正常的gdb命令
+" 调试了
 "==============================================                            }}}
 
 " ======= VimIm =============                                              {{{
@@ -440,8 +449,8 @@ autocmd BufReadPost *
 \|      exe "normal! g`\""
 \|  endif
 autocmd FileType text set textwidth=0
-autocmd BufNewFile,BufEnter *.md set ft=pandoc
-autocmd FileType pandoc setlocal textwidth=0 "list    " 显示行标致位
+autocmd FileType pandoc setlocal textwidth=79 list "formatoptions-=l
+" 显示行标致位，输入过程中自动换行
 autocmd BufNewFile,BufEnter *.tmp set textwidth=0
 "                                                                          }}}
 
@@ -460,11 +469,11 @@ endfunction
 " 实现绝对行号和相对行号的互换
 function! NumberToggle()                                                    "{{{
     if &number
-	setl relativenumber
+        setlocal relativenumber
     elseif &relativenumber
-	setl norelativenumber
+        setlocal norelativenumber
     else
-	setl nu
+        setlocal nu
     endif
 endfunction                                                                 "}}}
 call MolokaiTransp()
@@ -499,7 +508,7 @@ function! RenameVimIM()                                                     "{{{
     let a:vimimDBfileEX=a:vimimDBpatch . 'vimim.gbk.bsddb'
     let a:vimimDBfileAF=a:vimimDBpatch . 'vimim-bak.gbk.bsddb'
     if filereadable(a:vimimDBfileEX)
-	call rename(a:vimimDBfileEX, a:vimimDBfileAF)
+        call rename(a:vimimDBfileEX, a:vimimDBfileAF)
     endif
 endfunction
 "call RenameVimIM()                                                          "}}}
