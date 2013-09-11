@@ -2,8 +2,8 @@
 "这里涉及中文，要注意编码格式
 "set nextpattern=\s*下一页|下一张|下页\s*,\bnext\b,^>$,^>>$,\bmore\b
 "set previouspattern=\s*上一页|上一张|上页\s*,\bprev|previous\b,^<$,^<<$
-set nextpattern=\s*下一页|下一张|下一篇|下页|后页\s*,^\\bnext\\b,\\bnext\\b,^>$,^(>>|»)$,^(>|»),(>|»)$,\\bmore\\b
 set previouspattern=\s*上一页|上一张|上一篇|上页|前页\s*,^\\bprev|previous\\b,\\bprev|previous\\b,^<$,^(<<|«)$,^(<|«),(<|«)$
+set nextpattern=\s*下一页|下一张|下一篇|下页|后页\s*,^\\bnext\\b,\\bnext\\b,^>$,^(>>|»)$,^(>|»),(>|»)$,\\bmore\\b
 
 set tabnumbers
 set novb

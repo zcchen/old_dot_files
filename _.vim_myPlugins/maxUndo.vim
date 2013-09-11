@@ -39,16 +39,16 @@ function! RestoreSession()
         endif
     endif
     "Make sure the syntax is on
-    syntax on 
+    syntax on
 endfunction
 
 nmap ssa :call SaveSession()
-smap SO :call RestoreSession()
+nmap sso :call RestoreSession()
 autocmd VimLeave * call SaveSession()
 autocmd VimEnter * call RestoreSession()
 
 " Persistent undo
 set undodir=~/.vim/undodir
 set undofile
-set undolevels=1000 "maximum number of changes that can be undone
+set undolevels=10000 "maximum number of changes that can be undone
 set undoreload=10000 "maximum number lines to save for undo on a buffer reload
