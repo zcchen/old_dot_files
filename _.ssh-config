@@ -6,3 +6,18 @@ ServerAliveInterval = 30
 
 ForwardAgent yes
 #ControlPersist 1h
+
+host bitbucket.com
+  user git
+  hostname bitbucket.com
+  port 22
+  identityfile ~/.ssh/bitbucket
+
+host github.com
+  user git
+  hostname github.com
+  port 22
+  identityfile ~/.ssh/github
+
+# vim: ft=sshconfig
+

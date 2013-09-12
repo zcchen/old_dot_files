@@ -1,1 +1,0 @@
-/home/zcchen/dot_files/_.i3

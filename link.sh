@@ -2,7 +2,7 @@
 
 cd `dirname $0`
 
-linkcmd="ln -s "
+linkcmd="ln -snf "
 rmcmd="rm "
 
 ignoreFiles=(
@@ -24,27 +24,37 @@ ignoreLink() {            # Generate the sed script to ignore some files
     strReturn=""
 
     for (( i=0; i < $elem; i++ )); do
-        strReturn=$strReturn"/^"${ignoreFiles[$i]}"/d;"
+        strReturn=$strReturn'/^\(.\/\)\{0,1\}'${ignoreFiles[$i]}'$/d;'
     done
 
     ignoreSedSh=$strReturn              # Return sed script strings
 }
 
 linkCommand() {                         # Generate the link script
-    ignoreLink                              # In order to define ignoreSedSh
+    ignoreLink                          # In order to define ignoreSedSh
     if [[ $1 = "link" ]]; then
         sedScript=(
-            's:^\_.*$:&\ &:g'';'                # create simple copy
-            's:\ \_\.:\ \~\/\.:g'';'            # generate the target name
-            "s:^:$linkcmd\ `pwd`\/:g"           # generate the source pat
+            #'/^\(\.\/\)\{0,1\}[^_][a-zA-Z\.]*$/d'';'
+                                        ## delete those not start with \_
+            #'s:^\(\.\/\)\{0,1\}::g'';'  # let cmd find return as ls -1
+            's:^\_.*$:&\ &:g'';'        # create simple copy
+            's:\ \_\.:\ \~\/\.:g'';'    # generate the target name
+            "s:^:$linkcmd\ `pwd`\/:g"   # generate the source pat
         )
     elif [[ $1 = "remove" ]]; then
         sedScript=(
-            's:^\_\.:\~\/\.:g'';'               # generate the target name
-            "s:^:$rmcmd\ :g"                    # generate the source pat
+            #'/^\(\.\/\)\{0,1\}[^_][a-zA-Z\.]*$/d'';'
+                                        ## delete those not start with \_
+            #'s:^\(\.\/\)\{0,1\}::g'';'  # let cmd find return as ls -1
+            's:^\_\.:\~\/\.:g'';'       # generate the target name
+            "s:^:$rmcmd\ :g"            # generate the source pat
         )
     fi
     echo '#! /bin/bash'
+    #find -maxdepth 1 -type f |\
+        #sed -e "${ignoreSedSh}" |           # delete some ignore file line
+        #sed -e "${sedScript[*]}"
+
     ls -1 |\
         sed '/^[^_]/d' |                    # start Sel
         sed -e "${ignoreSedSh}" |           # delete some ignore file line
@@ -83,13 +93,13 @@ else
     if [[ -f linkScript.sh ]]; then
         rm linkScript.sh
     fi
-    #linkCommand $1                        # For test
-    linkCommand $1 |tee -a linkScript.sh   # Generate the script command
-    #otherLink $1
-    otherLink $1 |tee -a linkScript.sh
-    chmod +x linkScript.sh
-    ./linkScript.sh
-    rm ./linkScript.sh
+    linkCommand $1                        # For test
+    #linkCommand $1 |tee -a linkScript.sh   # Generate the script command
+    otherLink $1
+    #otherLink $1 |tee -a linkScript.sh
+    #chmod +x linkScript.sh
+    #./linkScript.sh
+    #rm ./linkScript.sh
 fi
 
 # vim: sw=4 sts=4 et tw=70
