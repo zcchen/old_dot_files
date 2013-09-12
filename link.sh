@@ -93,13 +93,13 @@ else
     if [[ -f linkScript.sh ]]; then
         rm linkScript.sh
     fi
-    linkCommand $1                        # For test
-    #linkCommand $1 |tee -a linkScript.sh   # Generate the script command
-    otherLink $1
-    #otherLink $1 |tee -a linkScript.sh
-    #chmod +x linkScript.sh
-    #./linkScript.sh
-    #rm ./linkScript.sh
+    #linkCommand $1                         For test
+    linkCommand $1 |tee -a linkScript.sh   # Generate the script command
+    #otherLink $1
+    otherLink $1 |tee -a linkScript.sh
+    chmod +x linkScript.sh
+    ./linkScript.sh
+    rm ./linkScript.sh
 fi
 
 # vim: sw=4 sts=4 et tw=70
