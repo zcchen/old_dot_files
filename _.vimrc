@@ -304,7 +304,7 @@ nmap <leader>sk :call ToggleSketch() <CR>
 " -------- others -------
 nnoremap <leader>transp :call MolokaiTransp(!g:MolokaiTransp_On)<CR>
 nnoremap <leader>vimrc :vsp $MYVIMRC <CR>
-nmap <S-F5> :call Chmodx()<CR>
+nmap <S-F4> :call Chmodx()<CR>
 
 
 " vim:foldmethod=marker

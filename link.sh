@@ -9,11 +9,13 @@ ignoreFiles=(
     _.ssh-config
     _.zathurarc
     _.vim_myPlugins
+    _vim_bundle.vim
 )
 ignoreFileTargets=(
     ~/.ssh/config
     ~/.config/zathura/zathurarc
     ~/.vim/myPlugins
+    ~/.vim/bundle.vim
 )
 
 ignoreLink() {            # Generate the sed script to ignore some files
@@ -51,19 +53,21 @@ linkCommand() {                         # Generate the link script
 
 otherLink() {
     if [[ ${#ignoreFiles[@]} -eq ${#ignoreFileTargets[@]} ]]; then
-        for (( i=0; i<${#ignoreFiles[@]} ; i++ )); do
-            if [ -f ${ignoreFiles[$i]} ];then
-                mkdir -p $(dirname ${ignoreFileTargets[$i]} )
+        for (( i=0; i < ${#ignoreFiles[@]}; i++ )); do
+            if [[ -f ${ignoreFiles[$i]} ]] || [[ -d ${ignoreFiles[$i]} ]]
+            then
+                echo "mkdir -p $(dirname ${ignoreFileTargets[$i]} )"
                 if [[ $1 = "link" ]]; then
-                    ln -s "`pwd`/${ignoreFiles[$i]}" ${ignoreFileTargets[$i]}
+                    echo "ln -s "`pwd`/${ignoreFiles[$i]}" ${ignoreFileTargets[$i]}"
                 elif [[ $1 = "remove" ]]; then
-                    rm ${ignoreFileTargets[$i]}
+                    echo "rm ${ignoreFileTargets[$i]}"
                 fi
             fi
         done
     else
         echo "************************************"
         echo "Some files could not be linked well!"
+        echo "Please check the script and edit it!"
         echo "************************************"
     fi
 }
@@ -81,7 +85,8 @@ else
     fi
     #linkCommand $1                        # For test
     linkCommand $1 |tee -a linkScript.sh   # Generate the script command
-    otherLink $1
+    #otherLink $1
+    otherLink $1 |tee -a linkScript.sh
     chmod +x linkScript.sh
     ./linkScript.sh
     rm ./linkScript.sh

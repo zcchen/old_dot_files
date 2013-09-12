@@ -45,7 +45,7 @@ function! Chmodx()                                                      "{{{
       call system("chmod +x ".shellescape(file))
       edit!
       filetype detect
-      nmap <buffer> <S-F5> :!%:p<CR>
+      nmap <buffer> <S-F4> :!%:p<CR>
     endif
   endif
 endfunction                                                             "}}}
