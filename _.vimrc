@@ -238,10 +238,9 @@ inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
 autocmd! bufwritepost .vimrc source $MYVIMRC
 " auto reload vimrc when editing it
 autocmd! BufReadPost *
-" 打开文件后自动定位上次光标的位置
             \   if line("'\"") > 1 && line("'\"") <= line("$")
             \|      exe "normal! g`\""
-            \|  endif
+            \|  endif   " 打开文件后自动定位上次光标的位置
 autocmd BufNewFile,BufEnter *.tmp set textwidth=0
 " --------- filetype --------
 autocmd FileType text set textwidth=0

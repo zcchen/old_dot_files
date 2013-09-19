@@ -28,3 +28,7 @@ export XMODIFIERS="@im=fcitx"
 export QT_IM_MODULE=fcitx
 export GTK_IM_MODULE=fcitx
 #export QT_IM_MODULE=xim
+
+# Radeon Opensource driver video decode
+export LIBVA_DRIVER_NAME=vdpau
+export VDPAU_DRIVER=radeonsi

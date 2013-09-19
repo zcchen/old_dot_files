@@ -1,0 +1,96 @@
+# Conky, a system monitor, based on torsmo
+# RootWin Conkyrc
+
+alignment top_right
+background yes
+border_width 1
+cpu_avg_samples 2
+net_avg_samples 2
+default_color white
+default_outline_color black
+default_shade_color black
+draw_borders no
+draw_graph_borders no
+draw_outline no
+draw_shades no
+use_xft yes
+xftfont Bitstream Vera Sans Mono:size=10
+xftalpha 0.8
+gap_x 20
+gap_y 30
+minimum_size 5 5
+maximum_width 460
+net_avg_samples 2
+no_buffers yes
+out_to_console no
+out_to_stderr no
+extra_newline no
+own_window no
+own_window_class Conky
+own_window_type desktop
+own_window_transparent yes
+stippled_borders 0
+update_interval 1.0
+uppercase no
+use_spacer none
+show_graph_scale no
+show_graph_range no
+double_buffer yes
+minimum_size 200 
+text_buffer_size 1024
+
+TEXT
+${color #1793d1}${offset 60}${font Bitstream Vera Sans Mono:size=40}${time %H}${font Bitstream Vera Sans Mono:size=25}${voffset -22}${time :%M:%S}${font Bitstream Vera Sans Mono:size=12}${offset -145}${voffset 30}${time %a, %d %b, %Y}${color white}${font Bitstream Vera Sans Mono:size=10}
+
+${image /home/timor/.config/icons/arch_a.png -p 0,135 -s 60x60}${font Bitstream Vera Sans Mono:size=15}${color #1793d1}=======[${color white}${exec whoami}${color #dd0000}@${color #1793d1}${nodename}]=======${color white}${font Bitstream Vera Sans Mono:size=10}
+
+${offset 60}${sysname} ${color #1793d1}$kernel${color white} (${machine})
+${offset 60} ${color white}Users: ${color #dd0000}${user_number}${color white}
+${color #0000dd}${stippled_hr space}${color white}
+${image /home/timor/.config/icons/vol7.png -p 0,208 -s 13x13}${offset 18}Volume: ${color #1793d1}${mixer Vol}%${color white}
+${image /home/timor/.config/icons/batt4full.png -p 0,230 -s 13x13}${offset 18}Battery: ${color #1793d1}${acpiacadapter}${color white} [${color green}${if_match ${battery_percent BAT0} <= 25}${color red}${endif}${battery_percent}%${color white}]
+${color #0000dd}${stippled_hr space}${color white}
+Uptime:${color #1793d1} $uptime${color white}  Load:${color #1793d1} $loadavg
+${color white}CPU 1: ${color #dd0000}${cpu cpu1}% ${color #1793d1}(${freq 1} Mhz)    
+${color white}CPU 2: ${color #dd0000}${cpu cpu2}% ${color #1793d1}(${freq 2} Mhz)
+${color black}${cpugraph 000000 5000a0}
+${color white}RAM Usage:${color #1793d1} $mem/$memmax - $memperc% $membar
+${color white}Swap Usage:${color #1793d1} $swap/$swapmax - $swapperc% ${swapbar}
+${color white}Processes:$color $processes  ${color white}Running:$color $running_processes
+${color #0000dd}${stippled_hr space}${color white}
+${color white}${image /home/timor/.config/icons/wireless8.png -p 0,455 -s 13x13}${offset 18}Network:
+ Connections: ${color #1793d1}${tcp_portmon 1 65535 count}
+ ${color white}${if_up wlan0}${wireless_essid wlan0}:${color #dd0000} ${addr wlan0} ${color white}(${color green}${if_match ${wireless_link_qual_perc wlan0} <= 50}${color red}${endif}${wireless_link_qual_perc wlan0}%${color white})
+ ${color white}Down:${color #dd0000} ${downspeed wlan0} ${color white}Up: ${color #dd0000}${upspeed wlan0}${else}${if_up eth0}${wireless_essid eth0}$:${color #dd0000} ${addr eth0}  
+ ${color white}Down:${color #dd0000} ${downspeed etho0} ${color white}Up: ${color #dd0000}${upspeed etho0}${endif}${endif}
+
+#${image /home/timor/.config/icons/file4.png -p 0,555 -s 13x13}${offset 18}${color white}Disks:
+  #Archlinux (/dev/sda4) $color${fs_used /}/${fs_size /}
+  #${if_mounted /mnt/windows7}Windows7  (/dev/sda3) $color${fs_used /mnt/windows7}/${fs_size /mnt/windows7}${else}Windows Partition not mounted${endif}
+  #${if_mounted /mnt/extHD}External HDD          $color${fs_used /mnt/extHD/}/${fs_size /mnt/extHD/}${else}Externel HDD not mounted${endif}
+
+${color white}
+    #${image /home/timor/.config/icons/temp2.png -p 0,655 -s 13x13}
+    ${offset 18}Temperature:  
+  CPU: ${hwmon 1 temp 2}°C|${hwmon 0 temp 1}°C		ACPI: ${acpitemp}°C
+  GPU: ${nvidia temp}°C	${color #dd0000}(${nvidia threshold}°C)${color white}
+${color #0000dd}${stippled_hr space}${color white}
+#${image /home/timor/.config/icons/note6.png -p 0,735 -s 13x13}
+    ${offset 18}${color #1793d1}MPD: ${alignc}$mpd_artist - $mpd_title
+${color #1793d1}$mpd_bar
+${color #1793d1}${alignc}$mpd_status
+${color blue}${stippled_hr space}${color white}
+Name              PID     CPU%   MEM%
+${color #dd0000} ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
+${color #dd7700} ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
+${color #dddd00} ${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}
+${color white} ${top name 4} ${top pid 4} ${top cpu 4} ${top mem 4}
+${color white} ${top name 5} ${top pid 5} ${top cpu 5} ${top mem 5}
+${color slate grey}____:${fs_size /media/____} ${color orange}U:${fs_used /media/____} ${color}F:${fs_free /media/____} ${if_empty mnttools_entry}$endif
+$color${fs_bar /media/____} ${color orange}${diskio sdb1} ${if_empty mnttools_entry}$endif
+${color slate grey}LY:${fs_size /media/LY} ${color orange}U:${fs_used /media/LY} ${color}F:${fs_free /media/LY} ${if_empty mnttools_entry}$endif
+$color${fs_bar /media/LY} ${color orange}${diskio sdb1} ${if_empty mnttools_entry}$endif
+${color slate grey}ARCHISO_EFI:${fs_size /media/ARCHISO_EFI} ${color orange}U:${fs_used /media/ARCHISO_EFI} ${color}F:${fs_free /media/ARCHISO_EFI} ${if_empty mnttools_entry}$endif
+$color${fs_bar /media/ARCHISO_EFI} ${color orange}${diskio sdb2} ${if_empty mnttools_entry}$endif
+${color slate grey}ARCH_201308:${fs_size /media/ARCH_201308} ${color orange}U:${fs_used /media/ARCH_201308} ${color}F:${fs_free /media/ARCH_201308} ${if_empty mnttools_entry}$endif
+$color${fs_bar /media/ARCH_201308} ${color orange}${diskio sdb1} ${if_empty mnttools_entry}$endif

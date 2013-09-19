@@ -33,6 +33,7 @@ Bundle 'DoxygenToolkit.vim'
 Bundle 'DoxyGen-Syntax'
 "Bundle 'cscope_macros.vim'
 Bundle 'brookhong/cscope.vim'
+Bundle 'PotatoesMaster/i3-vim-syntax'
 " ===== text =====
 "Bundle 'vimwiki'
 "Bundle 'VOoM'
