@@ -39,7 +39,7 @@ font pango:DejaVu Sans Mono,Terminal Bold Semi-Condensed 9.5
     set $filem_gui spacefm
 
     # Wallpapers
-    exec --no-startup-id feh --bg-max --no-fehbg ~/Pictures/git-cheat-sheet-large.png
+    exec --no-startup-id feh --bg-max --no-fehbg ~/Pictures/Pictures/wallpapers/clannad/005.jpg
 
     # auto start 
     exec --no-startup-id killall -9 fcitx
@@ -357,7 +357,7 @@ bar {
     workspace_buttons yes
     tray_output none
     font xft:DejaVu Sans Mono,Bold 9
-        status_command i3status --config ~/.i3/i3status-top.conf
+    status_command i3status --config ~/.i3/i3status-top.conf
     colors {
         background #02000f
         statusline #ffffef
@@ -378,7 +378,7 @@ bar {
     #tray_output $mon_ext
     #tray_output $mon_hdmi
     font xft:DejaVu Sans Mono,Bold 9
-        status_command i3status --config ~/.i3/i3status-buttom.conf
+    status_command i3status --config ~/.i3/i3status-buttom.conf
     colors {
         background #02000f
         statusline #ffffef
