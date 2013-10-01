@@ -3,7 +3,7 @@ set nocompatible               " be iMproved and Disable vi-compatibility
 filetype off                   " required!
 call vundle#rc()
 Bundle 'scrooloose/nerdtree'
-Bundle 'vim-scripts/Conque-Shell'
+"Bundle 'vim-scripts/Conque-Shell'
 Bundle 'taxilian/a.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'majutsushi/tagbar'
@@ -34,6 +34,7 @@ Bundle 'DoxyGen-Syntax'
 "Bundle 'cscope_macros.vim'
 Bundle 'brookhong/cscope.vim'
 Bundle 'PotatoesMaster/i3-vim-syntax'
+Bundle 'http://fedorapeople.org/cgit/wwoods/public_git/vim-scripts.git'
 " ===== text =====
 "Bundle 'vimwiki'
 "Bundle 'VOoM'
