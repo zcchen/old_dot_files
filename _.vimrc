@@ -31,7 +31,7 @@ source ~/.vim/myPlugins/maxUndo.vim         "max undoes
 source ~/.vim/myPlugins/LanguageToolUpdate.vim
 source ~/.vim/myPlugins/escalt.vim          "alt key enable
 set ttimeoutlen =10
-source ~/.vim/myPlugins/snippetsPatch.vim  " snippet quotation
+source ~/.vim/myPlugins/snippetsPatch.vim  " snippet Addon quotation
 source ~/.vim/myPlugins/cscopeQuickfix.vim " cscope Quickfix mode
 
 ""=========== encoding =============

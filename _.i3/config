@@ -238,6 +238,7 @@ bindsym $mod+grave exec --no-startup-id i3-msg '[con_mark="1"] focus'
     bindsym $mod+F10 exec amixer set Master 3%+
     #bindsym XF86WLAN
     bindsym XF86Mail exec --no-startup-id synclient TouchpadOff=$(synclient -l|grep -c 'TouchpadOff.*=.*0')
+    bindsym $mod+F3 exec --no-startup-id synclient TouchpadOff=$(synclient -l|grep -c 'TouchpadOff.*=.*0')
     bindsym XF86Sleep exec i3lock -d -c 444444
     bindsym XF86Tools exec --no-startup-id synclient TouchpadOff=$(synclient -l|grep -c 'TouchpadOff.*=.*0')
     # lock screen
