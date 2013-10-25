@@ -94,3 +94,7 @@ ${color slate grey}ARCHISO_EFI:${fs_size /media/ARCHISO_EFI} ${color orange}U:${
 $color${fs_bar /media/ARCHISO_EFI} ${color orange}${diskio sdb2} ${if_empty mnttools_entry}$endif
 ${color slate grey}ARCH_201308:${fs_size /media/ARCH_201308} ${color orange}U:${fs_used /media/ARCH_201308} ${color}F:${fs_free /media/ARCH_201308} ${if_empty mnttools_entry}$endif
 $color${fs_bar /media/ARCH_201308} ${color orange}${diskio sdb1} ${if_empty mnttools_entry}$endif
+${color slate grey}Kingston:${fs_size /media/Kingston} ${color orange}U:${fs_used /media/Kingston} ${color}F:${fs_free /media/Kingston} ${if_empty mnttools_entry}$endif
+$color${fs_bar /media/Kingston} ${color orange}${diskio sdb1} ${if_empty mnttools_entry}$endif
+${color slate grey}Debian_7.2.0_i386_1:${fs_size /media/Debian_7.2.0_i386_1} ${color orange}U:${fs_used /media/Debian_7.2.0_i386_1} ${color}F:${fs_free /media/Debian_7.2.0_i386_1} ${if_empty mnttools_entry}$endif
+$color${fs_bar /media/Debian_7.2.0_i386_1} ${color orange}${diskio sdb1} ${if_empty mnttools_entry}$endif
