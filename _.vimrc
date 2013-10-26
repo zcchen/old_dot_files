@@ -31,7 +31,7 @@ source ~/.vim/myPlugins/maxUndo.vim         "max undoes
 source ~/.vim/myPlugins/LanguageToolUpdate.vim
 source ~/.vim/myPlugins/escalt.vim          "alt key enable
 set ttimeoutlen =10
-source ~/.vim/myPlugins/snippetsPatch.vim  " snippet quotation
+source ~/.vim/myPlugins/snippetsPatch.vim  " snippet Addon quotation
 source ~/.vim/myPlugins/cscopeQuickfix.vim " cscope Quickfix mode
 
 ""=========== encoding =============
@@ -114,7 +114,7 @@ if has('mouse')
     set mouse=a
 endif
 set confirm
-set textwidth=77
+set textwidth=75
 set autochdir       " change working dir when open files.
 set hidden          " A buffer becomes hidden when it is abandoned
 set formatoptions+=B   " No space when joining two lines of Chinese together
@@ -244,7 +244,7 @@ autocmd! BufReadPost *
 autocmd BufNewFile,BufEnter *.tmp set textwidth=0
 " --------- filetype --------
 autocmd FileType text set textwidth=0
-autocmd FileType pandoc setlocal textwidth=77 list "formatoptions-=l
+autocmd FileType pandoc setlocal textwidth=75 list "formatoptions-=l
 " 显示行标志位，输入过程中自动换行
 autocmd FileType c,cpp setlocal cinoptions=:0,g0,(0,w1 shiftwidth=4 tabstop=4
 autocmd FileType diff  setlocal shiftwidth=4 tabstop=4

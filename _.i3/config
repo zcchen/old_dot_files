@@ -46,6 +46,7 @@ font pango:DejaVu Sans Mono,Terminal Bold Semi-Condensed 9.5
     exec --no-startup-id killall -9 urxvtd
     exec --no-startup-id killall -9 syndaemon
     exec --no-startup-id killall -9 mpd
+    exec --no-startup-id killall -9 clipit
     exec sleep 1
     exec --no-startup-id urxvtd -q -o -f
     exec setxkbmap -option ctrl:nocaps
@@ -55,6 +56,7 @@ font pango:DejaVu Sans Mono,Terminal Bold Semi-Condensed 9.5
     exec --no-startup-id systemd --user &
     exec --no-startup-id dropboxd &
     exec --no-startup-id mpd &
+    exec --no-startup-id clipit &
     exec --no-startup-id keynav &
 # }}}
 
@@ -92,7 +94,8 @@ font pango:DejaVu Sans Mono,Terminal Bold Semi-Condensed 9.5
     assign [class="(?i)chromium"] "2: www"
     assign [class="(?i)opera"] "2: www"
     assign [class="(?i)mplayer"] "4: media"
-    assign [class="(?i)umplayer"] "4: media"
+    assign [class="(?i)smplayer"] "4: media"
+    assign [class="(?i)audacious"] "4: media"
     assign [class="(?i)vlc"] "4: media"
     assign [class="(?i)virtualbox"] "5"
     assign [class="(?i)Wine"] "5"
@@ -128,6 +131,12 @@ font pango:DejaVu Sans Mono,Terminal Bold Semi-Condensed 9.5
     for_window [class="(?i)chromium" ] layout tabbed
 #                                           }}}
 
+# mount option
+bindsym $mod+F5 exec --no-startup-id ~/.bash/udevil_all.sh mount
+bindsym $shift+$mod+F5 exec --no-startup-id ~/.bash/udevil_all.sh umount
+#
+
+# resize mode
 mode "resize" { #            {{{
     # These bindings trigger as soon as you enter the resize mode
     # Pressing left will shrink the window’s width.
@@ -217,7 +226,7 @@ bindsym $mod+grave exec --no-startup-id i3-msg '[con_mark="1"] focus'
     bindsym $mod+$shift+Return exec --no-startup-id $term -cd `pwd`
 
     # Editor
-    bindsym $mod+Escape exec --no-startup-id $term -e i3-sensible-editor
+    bindsym $mod+Escape exec --no-startup-id $term -e $editor
 
     # dmenu
     bindsym $mod+d exec --no-startup-id dmenu_run -i -f -nb '#444444' -nf '#dddddd' -sb '#692E81' -fn 'DejaVu Sans Mono-11' -p 'Run:'
@@ -238,6 +247,7 @@ bindsym $mod+grave exec --no-startup-id i3-msg '[con_mark="1"] focus'
     bindsym $mod+F10 exec amixer set Master 3%+
     #bindsym XF86WLAN
     bindsym XF86Mail exec --no-startup-id synclient TouchpadOff=$(synclient -l|grep -c 'TouchpadOff.*=.*0')
+    bindsym $mod+F3 exec --no-startup-id synclient TouchpadOff=$(synclient -l|grep -c 'TouchpadOff.*=.*0')
     bindsym XF86Sleep exec i3lock -d -c 444444
     bindsym XF86Tools exec --no-startup-id synclient TouchpadOff=$(synclient -l|grep -c 'TouchpadOff.*=.*0')
     # lock screen

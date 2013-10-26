@@ -23,7 +23,9 @@ function! MolokaiTransp(on)                                           "{{{
             "!echo "0"
         endif
     endif
-endfunction                                                             "}}}
+endfunction
+command MolokaiTransp call MolokaiTransp(!g:MolokaiTransp_On)
+"}}}
 
 " 实现绝对行号和相对行号的互换
 function! NumberToggle()                                                 "{{{
