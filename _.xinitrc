@@ -1,9 +1,3 @@
-#exec awesome
-#exec enlightenment_start
-#exec i3 -V >> ~/.i3/i3log 2>&1
-exec i3
-#exec openbox
-
 #pkill urxvtd
 #urxvtd -q -o -f
 
@@ -17,18 +11,12 @@ setxkbmap -option ctrl:nocaps
 
 #fcitx -d
 
-#export GTK_IM_MODULE="fcitx"
-#export QT_IM_MODULE="fcitx"
-#export XMODIFIERS="@im=fcitx"
-
-export XMODIFIERS="@im=fcitx"
-#export XIM="fcitx"
-#export XINPUT="xim"
-#export XIM_PROGRAM="fcitx -d"
-export QT_IM_MODULE=fcitx
-export GTK_IM_MODULE=fcitx
-#export QT_IM_MODULE=xim
-
 # Radeon Opensource driver video decode
 export LIBVA_DRIVER_NAME=vdpau
 export VDPAU_DRIVER=radeonsi
+
+#exec awesome
+#exec enlightenment_start
+#exec i3 -V >> ~/.i3/i3log 2>&1
+exec i3
+#exec openbox
