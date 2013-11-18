@@ -29,8 +29,9 @@ source ~/.vim/myPlugins/maxUndo.vim         "max undoes
 "nmap ssa :call SaveSession()
 "nmap sso :call RestoreSession()
 source ~/.vim/myPlugins/LanguageToolUpdate.vim
-source ~/.vim/myPlugins/escalt.vim          "alt key enable
-set ttimeoutlen =10
+"source ~/.vim/myPlugins/escalt.vim          "alt key enable
+"set ttimeoutlen =10
+" if the terminal env is rxvt, bugs will come out when macro is called
 source ~/.vim/myPlugins/snippetsPatch.vim  " snippet Addon quotation
 source ~/.vim/myPlugins/cscopeQuickfix.vim " cscope Quickfix mode
 

@@ -129,6 +129,8 @@ font pango:DejaVu Sans Mono,Terminal Bold Semi-Condensed 9.5
     for_window [class="(?i)virtualbox"] layout tabbed
     for_window [class="(?i)firefox" ] layout tabbed
     for_window [class="(?i)chromium" ] layout tabbed
+    for_window [class="(?i)com-mathworks-util-PostVMInit"] layout tabbed
+    # matlab R2013a
 #                                           }}}
 
 # mount option

@@ -16,6 +16,7 @@ export PATH="$PATH:$HOME/.bash:"
 export PATH="$PATH:/opt/dassault-systemes/draftsight/bin/:"
 export PATH="$PATH:/opt/android-sdk/tools:/opt/java/bin:"
 export PATH="$PATH:/opt/android-sdk/platform-tools/"
+export PATH="$PATH:/opt/matlab/R2013a/bin/"
 
 export EDITOR=vim
 #export USE_CCACHE=1
