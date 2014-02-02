@@ -19,7 +19,7 @@ export PATH="$PATH:/opt/android-sdk/platform-tools/"
 export PATH="$PATH:/opt/matlab/R2013a/bin/"
 export PATH="$PATH:$HOME/.cabal/bin/"
 
-export EDITOR=vim
+source ~/.profile
 #export USE_CCACHE=1
 #python Docs
 export PYTHONDOCS=/usr/share/doc/python2/html/
