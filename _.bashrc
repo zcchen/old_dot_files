@@ -40,6 +40,8 @@ alias lynx='lynx -vikeys'
 
 alias aurploader='aurploader -nk'
 
+alias t="todo.sh"
+
 # set bash completion
 source /usr/share/git/completion/git-completion.bash        #git
 source /usr/share/doc/pkgfile/command-not-found.bash        #pkgfile
