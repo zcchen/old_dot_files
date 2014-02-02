@@ -32,7 +32,7 @@ source ~/.vim/myPlugins/LanguageToolUpdate.vim
 "source ~/.vim/myPlugins/escalt.vim          "alt key enable
 "set ttimeoutlen =10
 " if the terminal env is rxvt, bugs will come out when macro is called
-source ~/.vim/myPlugins/snippetsPatch.vim  " snippet Addon quotation
+source ~/.vim/myPlugins/patches4plugin.vim  " snippet Addon quotation
 source ~/.vim/myPlugins/cscopeQuickfix.vim " cscope Quickfix mode
 
 ""=========== encoding =============
@@ -40,6 +40,7 @@ set fileencoding=utf-8 encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set fileformats=unix,dos,mac
 set formatoptions+=mM
+set modeline
 
 " ========== VIM UI ==============
 set wrap            " Wrap lines
@@ -93,7 +94,7 @@ let g:molokai_original=1
 "colorscheme xoria256
 "colorscheme desert256
 colorscheme molokai
-let g:MolokaiTransp_On = 1
+let g:MolokaiTransp_On = 0
 autocmd! BufReadPost,ColorScheme,VimEnter,WinEnter *
             \ call MolokaiTransp(g:MolokaiTransp_On)
 if !exists(g:colors_name)
@@ -237,6 +238,7 @@ autocmd! InsertLeave * if pumvisible() == 0|pclose|endif
 inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
 "回车即选中当前项
 autocmd! bufwritepost .vimrc source $MYVIMRC
+autocmd! bufwritepost bundle.vim source $MYVIMRC
 " auto reload vimrc when editing it
 autocmd! BufReadPost *
             \   if line("'\"") > 1 && line("'\"") <= line("$")
@@ -245,7 +247,7 @@ autocmd! BufReadPost *
 autocmd BufNewFile,BufEnter *.tmp set textwidth=0
 " --------- filetype --------
 autocmd FileType text set textwidth=0
-autocmd FileType pandoc setlocal textwidth=75 list "formatoptions-=l
+autocmd FileType pandoc setlocal textwidth=0 list "formatoptions-=l
 " 显示行标志位，输入过程中自动换行
 autocmd FileType c,cpp setlocal cinoptions=:0,g0,(0,w1 shiftwidth=4 tabstop=4
 autocmd FileType diff  setlocal shiftwidth=4 tabstop=4

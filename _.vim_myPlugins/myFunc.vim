@@ -24,7 +24,7 @@ function! MolokaiTransp(on)                                           "{{{
         endif
     endif
 endfunction
-command MolokaiTransp call MolokaiTransp(!g:MolokaiTransp_On)
+command! MolokaiTransp call MolokaiTransp(!g:MolokaiTransp_On)
 "}}}
 
 " 实现绝对行号和相对行号的互换
@@ -59,7 +59,7 @@ endfunction                                                             "}}}
 
 " 可以把现在的文件和原始文件对比。
 if !exists(":DiffOrig")                                                 "{{{
-    command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+    command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
     \ | wincmd p | diffthis
 endif                                                                   "}}}
 

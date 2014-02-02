@@ -1,0 +1,11 @@
+--- pandoc.vim	2014-01-31 17:45:17.294958055 +0800
++++ _pandoc.vim	2014-01-31 17:56:40.276867273 +0800
+@@ -34,7 +34,7 @@
+ else
+ 	"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+ 	" soft wrapping
+-	setlocal formatoptions=1
++	setlocal formatoptions+=1
+ 	setlocal linebreak
+ 	setlocal breakat-=*
+         setlocal wrap     " soft wrap doesn't make sense without it
