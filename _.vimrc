@@ -217,6 +217,8 @@ let g:syntastic_enable_highlighting=1
 let g:syntastic_ignore_files=['^/usr/include/', '\c\.h$']
 let g:syntastic_c_include_dirs = [ '/usr/avr/include/']
 " see :h Syntastic for more details
+" ------------ table-mode --------------
+let g:table_mode_corner_corner = '+'
 " ------------- SnipMate -----------------
 let g:snipMateAllowMatchingDot = 0
 "------------ LanguageTool --------------
@@ -247,6 +249,7 @@ autocmd! BufReadPost *
 autocmd BufNewFile,BufEnter *.tmp set textwidth=0
 " --------- filetype --------
 autocmd FileType text set textwidth=0
+"autocmd BufRead,BufNewFile *.md set filetype=pandoc
 autocmd FileType pandoc setlocal textwidth=0 list "formatoptions-=l
 " 显示行标志位，输入过程中自动换行
 autocmd FileType c,cpp setlocal cinoptions=:0,g0,(0,w1 shiftwidth=4 tabstop=4
@@ -265,6 +268,13 @@ autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
 " ---------- Octave / matlab ----------------
 autocmd FileType matlab
             \setlocal keywordprg=info\ octave\ --vi-keys\ --index-search
+" ----------- Pandoc -----------------------
+let g:pandoc_syntax_dont_use_conceal_for_rules=["hrule"]
+let g:snips_author = 'zcchen'
+" ------------ Shareboard ---------------
+let g:shareboard_command = printf('pandoc -sS --toc --webtex -c "%s" --bibliography="%s"',
+    \ expand("~/.vim/shareboard/main.css"),
+    \ expand("~/.vim/shareboard/library.bib"))
 
 " =================== key mapping ==============
 map <Up> <NOP>

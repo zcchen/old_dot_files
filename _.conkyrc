@@ -98,3 +98,7 @@ ${color slate grey}Kingston:${fs_size /media/Kingston} ${color orange}U:${fs_use
 $color${fs_bar /media/Kingston} ${color orange}${diskio sdb1} ${if_empty mnttools_entry}$endif
 ${color slate grey}Debian_7.2.0_i386_1:${fs_size /media/Debian_7.2.0_i386_1} ${color orange}U:${fs_used /media/Debian_7.2.0_i386_1} ${color}F:${fs_free /media/Debian_7.2.0_i386_1} ${if_empty mnttools_entry}$endif
 $color${fs_bar /media/Debian_7.2.0_i386_1} ${color orange}${diskio sdb1} ${if_empty mnttools_entry}$endif
+${color slate grey}KINGSTON:${fs_size /media/KINGSTON} ${color orange}U:${fs_used /media/KINGSTON} ${color}F:${fs_free /media/KINGSTON} ${if_empty mnttools_entry}$endif
+$color${fs_bar /media/KINGSTON} ${color orange}${diskio sdb1} ${if_empty mnttools_entry}$endif
+${color slate grey}ZCCHEN:${fs_size /media/ZCCHEN} ${color orange}U:${fs_used /media/ZCCHEN} ${color}F:${fs_free /media/ZCCHEN} ${if_empty mnttools_entry}$endif
+$color${fs_bar /media/ZCCHEN} ${color orange}${diskio sdb1} ${if_empty mnttools_entry}$endif
