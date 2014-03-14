@@ -1,0 +1,25 @@
+{"patterns":
+    [
+        {"enabled":true,
+           "name":"google",
+           "pattern":"*.google.co*",
+           "isRegEx":false,
+           "caseSensitive":false,
+           "blackList":false,
+           "multiLine":false},
+        {"enabled":true,
+           "name":"gstatic",
+           "pattern":"*.gstatic.co*",
+           "isRegEx":false,
+           "caseSensitive":false,
+           "blackList":false,
+           "multiLine":false},
+        {"enabled":true,
+           "name":"googleAll",
+           "pattern":"*.google*.co*",
+           "isRegEx":false,
+           "caseSensitive":false,
+           "blackList":false,
+           "multiLine":false}
+    ]
+}

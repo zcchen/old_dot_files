@@ -58,8 +58,8 @@ font pango:DejaVu Sans Mono,Terminal Bold Semi-Condensed 9.5
     exec --no-startup-id mpd &
     exec --no-startup-id clipit &
     exec --no-startup-id keynav &
-    exec --no-startup-id urxvt +tr -name scratchpad -cd $HOME"/Documents/todo/" #-e 't ls'
-    for_window [class="URxvt" instance="scratchpad"] move scratchpad
+    exec --no-startup-id urxvt +tr -name todoList -cd $HOME"/Documents/todo/" #-e 't ls'
+    for_window [class="URxvt" instance="todoList"] move scratchpad
 # }}}
 
 # General settings              {{{
@@ -299,7 +299,7 @@ bindsym $mod+grave exec --no-startup-id i3-msg '[con_mark="1"] focus'
         bindsym $mod+8 workspace 8
         bindsym $mod+9 workspace 9
         bindsym $mod+0 workspace 10
-        bindsym $mod+equal [instance="scratchpad"] scratchpad show
+        bindsym $mod+equal [instance="todoList"] scratchpad show
         bindsym $mod+minus scratchpad show
 
         # move focused container to workspace

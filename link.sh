@@ -10,12 +10,16 @@ ignoreFiles=(
     _.zathurarc
     _.vim_myPlugins
     _vim_bundle.vim
+    _.fcitx_config
+    _.fcitx_profile
 )
 ignoreFileTargets=(
     ~/.ssh/config
     ~/.config/zathura/zathurarc
     ~/.vim/myPlugins
     ~/.vim/bundle.vim
+    ~/.config/fcitx/config
+    ~/.config/fcitx/profile
 )
 
 ignoreLink() {            # Generate the sed script to ignore some files

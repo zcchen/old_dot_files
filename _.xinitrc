@@ -9,14 +9,17 @@ setxkbmap -option ctrl:nocaps
 
 /usr/bin/start-pulseaudio-x11
 
+source ~/.xprofile
+
 #fcitx -d
 
 # Radeon Opensource driver video decode
 export LIBVA_DRIVER_NAME=vdpau
-export VDPAU_DRIVER=radeonsi
+#export VDPAU_DRIVER=radeonsi
 
 #exec awesome
 #exec enlightenment_start
 #exec i3 -V >> ~/.i3/i3log 2>&1
 exec i3
 #exec openbox
+#exec xfce4-session

@@ -52,6 +52,7 @@ Bundle 'sketch.vim'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'dhruvasagar/vim-table-mode'
 Bundle 'lambdalisue/shareboard.vim'
+Bundle 'nathanaelkane/vim-indent-guides'
 " ===== Lang ======
 ""Bundle 'vimspell'
 Bundle 'LanguageTool'

@@ -1,3 +1,4 @@
 # ignore the editor swap file
 *.sw*
 *~
+_.vimperator/info
