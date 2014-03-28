@@ -4,13 +4,13 @@
 !                           }}}
 ! xTerm                     {{{
     xterm*termName: xterm-256color
-    xterm*utf8: true
-    xterm*locale: true
-    xterm*utf8Title: true
-    xterm*renderFont: true
+    xterm*utf8: True
+    xterm*locale: True
+    xterm*utf8Title: True
+    xterm*renderFont: True
     xterm*scaleHeight: 1.1
     xterm*preeditType: Root
-    xterm*xftAntialias: true
+    xterm*xftAntialias: True
     xterm*faceName: DejaVu Sans Mono:pixelsize=14
     xterm*faceNameDoublesize: WenQuanYi Zen Hei Mono:pixelsize=14
     xterm*customization: -color
@@ -20,7 +20,7 @@
 
     ! fix alt-key inputting
     xterm*eightBitInput: false
-    xterm*metaSendsEscape: true
+    xterm*metaSendsEscape: True
     xterm*inputMethod: fcitx
 
     ! copy and paste with clipboard
@@ -34,15 +34,14 @@
     aterm*font: *-*-fixed-medium-r-normal--*-140-*-*-*-*-iso8859-1
     aterm*boldFont:*-*-fixed-bold-r-normal--*-*-140-*-*-*-*-iso8859-1
     aterm*mfont: kc15f
-    aterm*transparent: true
-    aterm*transpscrollbar: true
+    aterm*transparent: True
+    aterm*transpscrollbar: True
     aterm*shading: 60
 !                           }}}
 ! URxvt   {{{
     ! General
         URxvt*.termName: rxvt
         URxvt*.inputMethod: fcitx
-        !这个会造成启动缓慢，但如果不启用，会造成没法输入中文
         !URxvt*.multichar_encoding:UTF-8
         URxvt*.imLocale: zh_CN.UTF-8
         URxvt*.meta8: True
@@ -50,8 +49,9 @@
     ! font
         !URxvt*.font:xft:Monaco:pixelsize=10,xft:WenQuanYi Micro Hei:pixelsize=15
         URxvt*.font:xft:DejaVu Sans Mono:pixelsize=14,xft:WenQuanYi Micro Hei:pixelsize=20
+        URxvt*.letterSpace: 0
     ! Extensions
-        URxvt*.perl-lib:        /usr/lib/urxvt/perl/
+        URxvt*.perl-lib: /usr/lib/urxvt/perl/
         URxvt*.perl-ext-common: default,clipboard,url-select,keyboard-select
         !URxvt*.cursorBlink: True
         URxvt*.pointerBlink: True
@@ -64,7 +64,7 @@
         !URxvt*.clipboard.pastecmd: xclip -of
     ! follow URL
         URxvt*.matcher.button:1
-        URxvt*.url-select.underline: true
+        URxvt*.url-select.underline: True
         URxvt*.colorUL: #4682B4
         URxvt*.url-select.launcher: firefox -new-tab
         URxvt*.keysym.C-S-N: perl:url-select:select_next
@@ -98,9 +98,9 @@
         URxvt*.scrollstyle: plain
         URxvt*.saveLines: 65535
     ! transpartent
-        URxvt*.inheritPixmap: true
+        URxvt*.inheritPixmap: True
         URxvt*.depth: 32
-        URxvt*.transparent: true
+        URxvt*.transparent: True
         URxvt*.shading: 30
     ! other
         ! Rxvt.preditType:Root
