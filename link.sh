@@ -12,6 +12,7 @@ ignoreFiles=(
     _vim_bundle.vim
     _.fcitx_config
     _.fcitx_profile
+    _.fcitx_conf
 )
 ignoreFileTargets=(
     ~/.ssh/config
@@ -20,6 +21,7 @@ ignoreFileTargets=(
     ~/.vim/bundle.vim
     ~/.config/fcitx/config
     ~/.config/fcitx/profile
+    ~/.config/fcitx/conf
 )
 
 ignoreLink() {            # Generate the sed script to ignore some files
@@ -74,7 +76,7 @@ otherLink() {
                 if [[ $1 = "link" ]]; then
                     echo "ln -s "`pwd`/${ignoreFiles[$i]}" ${ignoreFileTargets[$i]}"
                 elif [[ $1 = "remove" ]]; then
-                    echo "rm ${ignoreFileTargets[$i]}"
+                    echo "rm -rf ${ignoreFileTargets[$i]}"
                 fi
             fi
         done
