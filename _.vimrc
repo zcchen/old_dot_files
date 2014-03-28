@@ -153,7 +153,7 @@ let c_comment_strings=1         "highlighting strings inside C comments
 " ============ Plugins Settings =============
 "------- ctags & Tagbar / TagList --------------
 set tags=tags,tags;
-nmap <leader>ctags   :!ctags --c++-kinds=+p --fields=+iaS --extra=+q -R *
+nmap <leader>ctags   :!ctags --c++-kinds=+p --fields=+iaS --links=yes --extra=+q -R *
 let g:tagbar_ctags_bin = '/usr/bin/ctags'
 let g:tabbar_autoshowtag =1
 let g:tagbar_autofocus = 0
