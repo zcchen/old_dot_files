@@ -113,7 +113,8 @@ set history =50
 set backspace=indent,eol,start
     " allow backspacing over everything in insert mode, gvim need this...
 if has('mouse')
-    set mouse=a
+    "set mouse=a
+    set mouse=""
 endif
 set confirm
 set textwidth=75
