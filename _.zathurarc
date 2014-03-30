@@ -2,5 +2,5 @@ set show-scrollbars true
 map <PageDown> scroll half-down
 map <PageUp> scroll half-up
 
-set recolor-darkcolor "#D3D7CF"
-set recolor-lightcolor "#0F0F0F"
+set recolor-darkcolor "#C3C7CF"
+set recolor-lightcolor "#070707"
