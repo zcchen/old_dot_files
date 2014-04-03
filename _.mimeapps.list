@@ -1,0 +1,8 @@
+[Added Associations]
+application/pdf=zathura-pdf-poppler.desktop;
+video/x-matroska=smplayer.desktop;
+video/mp4=smplayer.desktop;
+video/x-flv=smplayer-usercreated-0.desktop;
+
+[Default Applications]
+inode/directory=spacefm-folder-handler.desktop

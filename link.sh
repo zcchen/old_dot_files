@@ -13,6 +13,7 @@ ignoreFiles=(
     _.fcitx_config
     _.fcitx_profile
     _.fcitx_conf
+    _.mimeapps.list
 )
 ignoreFileTargets=(
     ~/.ssh/config
@@ -22,6 +23,7 @@ ignoreFileTargets=(
     ~/.config/fcitx/config
     ~/.config/fcitx/profile
     ~/.config/fcitx/conf
+    ~/.local/share/applications/mimeapps.list
 )
 
 ignoreLink() {            # Generate the sed script to ignore some files
@@ -74,7 +76,7 @@ otherLink() {
             then
                 echo "mkdir -p $(dirname ${ignoreFileTargets[$i]} )"
                 if [[ $1 = "link" ]]; then
-                    echo "ln -s "`pwd`/${ignoreFiles[$i]}" ${ignoreFileTargets[$i]}"
+                    echo "ln -snf "`pwd`/${ignoreFiles[$i]}" ${ignoreFileTargets[$i]}"
                 elif [[ $1 = "remove" ]]; then
                     echo "rm -rf ${ignoreFileTargets[$i]}"
                 fi
