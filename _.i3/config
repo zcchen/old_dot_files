@@ -42,23 +42,10 @@ font pango:DejaVu Sans Mono,Terminal Bold Semi-Condensed 9.5
     exec --no-startup-id feh --bg-max --no-fehbg ~/Pictures/Pictures/git/git-cheat-sheet-large.png
 
     # auto start 
-    exec --no-startup-id killall -9 fcitx
-    exec --no-startup-id killall -9 urxvtd
-    exec --no-startup-id killall -9 syndaemon
-    exec --no-startup-id killall -9 mpd
-    exec --no-startup-id killall -9 clipit
-    exec sleep 1
-    exec --no-startup-id urxvtd -q -o -f
     exec setxkbmap -option ctrl:nocaps
-    exec --no-startup-id syndaemon -i 2 -dtk
-    exec --no-startup-id synclient TouchpadOff=$(synclient -l|grep -c 'TouchpadOff.*=.*0')
-    exec --no-startup-id fcitx -d &
-    exec --no-startup-id systemd --user &
-    exec --no-startup-id dropboxd &
-    exec --no-startup-id mpd &
-    exec --no-startup-id clipit &
-    exec --no-startup-id keynav &
     exec --no-startup-id urxvt +tr -name todoList -cd $HOME"/Documents/todo/" #-e 't ls'
+
+    exec --no-startup-id ~/.bash/exec_folder_all.sh ~/.config/autostart/ &
     for_window [class="URxvt" instance="todoList"] move scratchpad
 # }}}
 
