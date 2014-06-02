@@ -38,8 +38,10 @@
     \newgeometry{includefoot, top=0.7in, bottom=0.7in, left=2.6cm, right=2.6cm}
 }
 \pagestyle{tmp}
+\newcommand{\myVec}{\overset{\rightharpoonup}}
 
 \usepackage{tikz}
+\usepackage{pgf}
 %\usepackage[active,tightpage]{preview}
 %\PreviewEnvironment[]{tikzpicture}
 %\PreviewEnvironment[]{tabular}

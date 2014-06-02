@@ -11,7 +11,7 @@ Bundle 'majutsushi/tagbar'
 " ====== complete =======
 "Bundle 'vim-scripts/pythoncomplete'
 Bundle 'davidhalter/jedi-vim'
-Bundle 'vim-scripts/OmniCppComplete'
+"Bundle 'vim-scripts/OmniCppComplete'
 Bundle 'msanders/snipmate.vim'
 "Bundle 'UltiSnips'
 " ===== syntax =====

@@ -36,7 +36,7 @@ source ~/.vim/myPlugins/patches4plugin.vim  " snippet Addon quotation
 source ~/.vim/myPlugins/cscopeQuickfix.vim " cscope Quickfix mode
 source ~/.vim/myPlugins/countChs.vim        " count the chinese characters
 
-source ~/.vim/myPlugins/tikz_preview.vim
+"source ~/.vim/myPlugins/tikz_preview.vim
 
 ""=========== encoding =============
 set fileencoding=utf-8 encoding=utf-8
@@ -321,6 +321,8 @@ nmap <leader>sk :call ToggleSketch() <CR>
 nnoremap <leader>transp :call MolokaiTransp(!g:MolokaiTransp_On)<CR>
 nnoremap <leader>vimrc :vsp $MYVIMRC <CR>
 nmap <S-F4> :call Chmodx()<CR>
+" --------- Tikz_Preview ---------
+let g:Tikz_latex_template = $HOME.'/.vim/myPlugins/tikz2pdf.latex'
 
 " ---------- 论文写作 ----------
 nmap <leader>bib ^f{lyt,
