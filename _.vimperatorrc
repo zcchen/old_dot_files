@@ -25,6 +25,9 @@ noremap <silent> <leader>apa :ap a<cr>
 noremap <silent> <leader>apd :ap d<cr>
 noremap <silent> <leader>apg :ap g<cr>
 
+noremap <silent> [[ [[<ESC>
+noremap <silent> ]] ]]<ESC>
+
 loadplugins
 
 js << EOF
