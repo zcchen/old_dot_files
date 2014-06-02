@@ -68,3 +68,6 @@ shopt -s checkwinsize
 #go init
 mkdir -p /tmp/go
 export GOPATH=/tmp/go
+
+# Game Simutrans
+alias simutrans="simutrans -use_hw -pause"
