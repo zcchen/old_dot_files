@@ -57,7 +57,7 @@ complete -cf {sudo,proxychains,systemctl}
 #alias winetricks='xhost +local: && sudo -u skype /usr/bin/winetricks'
 #alias wine='xhost +local: && sudo -u skype /usr/bin/wine'
 
-alias clockUpdate='sudo ntpd -qg && sudo hwclock -w'
+alias clockUpdate='sudo systemctl stop ntpd && sudo ntpd -qg && sudo hwclock -uw && sudo systemctl start ntpd'
 alias pwdcd="pwd | xsel -ib"
 alias cdpwd="cd $(xsel -ob)"
 
@@ -71,3 +71,6 @@ export GOPATH=/tmp/go
 
 # Game Simutrans
 alias simutrans="simutrans -use_hw -pause"
+
+# Skype Setting for uncomman pulseAudio Problem
+export PULSE_LATENCY_MSEC=60
