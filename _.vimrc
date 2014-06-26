@@ -40,7 +40,7 @@ source ~/.vim/myPlugins/countChs.vim        " count the chinese characters
 
 ""=========== encoding =============
 set fileencoding=utf-8 encoding=utf-8
-set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+set fileencodings=ucs-bom,utf-8,cp936,big5,gb18030,euc-jp,euc-kr,latin1
 set fileformats=unix,dos,mac
 set formatoptions+=mM
 set modeline
@@ -259,6 +259,7 @@ autocmd FileType pandoc setlocal textwidth=0 list "formatoptions-=l
 autocmd FileType c,cpp setlocal cinoptions=:0,g0,(0,w1 shiftwidth=4 tabstop=4
 autocmd FileType diff  setlocal shiftwidth=4 tabstop=4
 autocmd BufEnter /usr/include/c++/*    setf cpp
+"autocmd BufEnter *rc set filetype=conf
 " -------- develop -----------
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
