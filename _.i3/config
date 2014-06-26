@@ -41,12 +41,12 @@ font pango:DejaVu Sans Mono, Terminal Bold Semi-Condensed 9.5
     # Wallpapers
     exec --no-startup-id feh --bg-max --no-fehbg ~/Pictures/Pictures/git/git-cheat-sheet-large.png
 
-    # auto start 
+    # auto start
     exec setxkbmap -option ctrl:nocaps
-    exec --no-startup-id urxvt +tr -name todoList -cd $HOME"/Documents/todo/" #-e 't ls'
+    #exec --no-startup-id urxvt +tr -name todoList -cd $HOME"/Documents/todo/" #-e 't ls'
+    #for_window [class="URxvt" instance="todoList"] move scratchpad
 
     exec --no-startup-id ~/.bash/exec_folder_all.sh ~/.config/autostart/ &
-    for_window [class="URxvt" instance="todoList"] move scratchpad
 # }}}
 
 # General settings              {{{
@@ -70,12 +70,12 @@ font pango:DejaVu Sans Mono, Terminal Bold Semi-Condensed 9.5
     workspace "3: work" output $mon_lap
     #workspace "4: media" output $mon_lap $mon_hdmi $mon_ext
     workspace "4: media" output $mon_lap
-    workspace "5" output $mon_lap
-    workspace "6" output $mon_ext
-    workspace "7" output $mon_ext
-    workspace "8" output $mon_ext
-    workspace "9" output $mon_ext
-    workspace "10" output $mon_ext
+    workspace 5 output $mon_lap
+    workspace 6 output $mon_ext
+    workspace 7 output $mon_ext
+    workspace 8 output $mon_ext
+    workspace 9 output $mon_ext
+    workspace 10 output $mon_ext
 # }}}
 
 # assign windows                            {{{
@@ -230,7 +230,7 @@ bindsym $mod+grave exec --no-startup-id i3-msg '[con_mark="1"] focus'
 
     # dmenu
     bindsym $mod+d exec --no-startup-id dmenu_run -i -f -nb '#444444' -nf '#dddddd' -sb '#692E81' -fn 'DejaVu Sans Mono-11' -p 'Run:'
-    #bindsym $mod+d exec --no-startup-id dmenu_run -i 
+    #bindsym $mod+d exec --no-startup-id dmenu_run -i
     #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
     # volume and Xf86 keys
