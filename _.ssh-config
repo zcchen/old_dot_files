@@ -19,5 +19,11 @@ host github.com
   port 22
   identityfile ~/.ssh/github
 
+host gitcafe.com
+  user git
+  hostname gitcafe.com
+  port 22
+  identityfile ~/.ssh/gitcafe
+
 # vim: ft=sshconfig
 
