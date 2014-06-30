@@ -1,5 +1,5 @@
 [global]
-    font = DejaVu Sans Mono-10
+    font = DejaVu Sans Mono-8
 
     # The format of the message. Possible variables are:
     #   %a  appname
@@ -18,7 +18,7 @@
 
     # alignment of message text.
     # Possible values are "left", "center" and "right"
-    alignment = left
+    alignment = center
 
     # The frequency with wich text that is longer than the notification
     # window allows bounces back and forth.
@@ -28,7 +28,7 @@
 
     # show age of message if message is older than show_age_threshold seconds.
     # set to -1 to disable
-    show_age_threshold = 60
+    show_age_threshold = 30
 
     # split notifications into multiple lines if they don't fit into geometry
     word_wrap = yes
@@ -48,7 +48,8 @@
     # right side of the screen.  Y is measured from the top and down respectevly.
     # The width can be negative. In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "300x5-30+20"
+    #geometry = "300x5-30+20"
+    geometry = "-0x-15-0-20"
 
     # The transparency of the window. range: [0; 100]
     # This option will only work if a compositing windowmanager is present (e.g. xcompmgr, compiz, etc..)
