@@ -15,6 +15,7 @@ ignoreFiles=(
     _.fcitx_conf
     _.mimeapps.list
     _.autostart
+    _.dunstrc
 )
 ignoreFileTargets=(
     ~/.ssh/config
@@ -26,6 +27,7 @@ ignoreFileTargets=(
     ~/.config/fcitx/conf
     ~/.local/share/applications/mimeapps.list
     ~/.config/autostart
+    ~/.config/dunst/dunstrc
 )
 
 ignoreLink() {            # Generate the sed script to ignore some files
