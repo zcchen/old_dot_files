@@ -329,5 +329,9 @@ let g:Tikz_latex_template = $HOME.'/.vim/myPlugins/tikz2pdf.latex'
 nmap <leader>bib ^f{lyt,
 nmap <leader>abib i[@]<ESC>P
 
+" ---------- 日期/时间的快速插入 -------
+iab <expr> today_ strftime("%Y-%m-%d")
+iab <expr> time_ strftime("%T (%Z)")
+
 
 " vim:foldmethod=marker
