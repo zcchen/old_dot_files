@@ -41,6 +41,7 @@ alias lynx='lynx -vikeys'
 alias aurploader='aurploader -nk'
 
 alias t="todo.sh"
+alias vtodo="vim ~/Documents/Dropbox/todo/todo.txt"
 
 # set bash completion
 source /usr/share/git/completion/git-completion.bash        #git
