@@ -370,6 +370,7 @@ bar {
     workspace_buttons yes
     tray_output none
     font xft:DejaVu Sans Mono,Bold 9
+    id bar-top
     status_command i3status --config ~/.i3/i3status-top.conf
     colors {
         background #02000f
@@ -391,7 +392,8 @@ tray_output $mon_lap
 #tray_output $mon_ext
 #    tray_output $mon_hdmi
     font xft:DejaVu Sans Mono,Bold 9
-    status_command i3status --config ~/.i3/i3status-buttom.conf
+    status_command i3status --config ~/.i3/i3status-bottom.conf
+    id bar-bottom
     colors {
         background #02000f
         statusline #ffffef
