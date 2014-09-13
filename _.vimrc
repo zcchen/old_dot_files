@@ -35,6 +35,7 @@ source ~/.vim/myPlugins/LanguageToolUpdate.vim
 source ~/.vim/myPlugins/patches4plugin.vim  " snippet Addon quotation
 source ~/.vim/myPlugins/cscopeQuickfix.vim " cscope Quickfix mode
 source ~/.vim/myPlugins/countChs.vim        " count the chinese characters
+source ~/.vim/passwd.vim                    " Set some devel token or password here
 
 "source ~/.vim/myPlugins/tikz_preview.vim
 
@@ -330,8 +331,9 @@ nmap <leader>bib ^f{lyt,
 nmap <leader>abib i[@]<ESC>P
 
 " ---------- 日期/时间的快速插入 -------
-iab <expr> today_ strftime("%Y-%m-%d")
-iab <expr> time_ strftime("%T (%Z)")
+iab <expr> today_\ strftime("%Y-%m-%d")
+iab <expr> day_\ strftime("%A")
+iab <expr> time_\ strftime("%T (%Z)")
 
 
 " vim:foldmethod=marker
