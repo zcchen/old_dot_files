@@ -13,7 +13,7 @@ alias l=ls
 #PS1='\[\033[01;32m\]`date +%R:%S` \u@\h\[\033[01;34m\] \w\$\[\033[00m\] '
 PS1='\[\033[01;32m\]\t \u \[\033[01;34m\]\w\$\[\033[00m\] '
 export PATH="$PATH:$HOME/.bash"
-export PATH="$PATH:/opt/dassault-systemes/DraftSight/Linux"
+export PATH="$PATH:/opt/dassault-systemes/DraftSight/Linux/"
 export PATH="$PATH:/opt/android-sdk/tools:/opt/java/bin"
 export PATH="$PATH:/opt/android-sdk/platform-tools/"
 export PATH="$PATH:/opt/matlab/R2013a/bin/"
@@ -61,6 +61,8 @@ complete -cf {sudo,proxychains,systemctl}
 alias clockUpdate='sudo systemctl stop ntpd && sudo ntpd -qg && sudo hwclock -uw && sudo systemctl start ntpd'
 alias pwdcd="pwd | xsel -ib"
 alias cdpwd="cd $(xsel -ob)"
+alias create_ap="echo -e 'Disable dnscrypt-proxy\n' && sudo systemctl stop dnscrypt-proxy && sudo create_ap"
+alias my_create_ap="sudo systemctl stop dnscrypt-proxy && sudo ~/.myPasswd/my_create_ap.sh"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
