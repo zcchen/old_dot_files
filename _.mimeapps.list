@@ -5,6 +5,7 @@ video/mp4=smplayer.desktop;
 video/x-flv=smplayer-usercreated-0.desktop;
 text/plain=gvim.desktop;
 image/jpeg=viewnior.desktop;feh.desktop;
+image/png=viewnior.desktop;
 
 [Default Applications]
 inode/directory=spacefm-folder-handler.desktop
