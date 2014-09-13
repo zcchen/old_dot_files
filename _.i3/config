@@ -42,9 +42,9 @@ font pango:DejaVu Sans Mono, Terminal Bold Semi-Condensed 9.5
     exec --no-startup-id feh --bg-max --no-fehbg ~/Pictures/Pictures/git/git-cheat-sheet-large.png
 
     # auto start
-    exec setxkbmap -option ctrl:nocaps
-    #exec --no-startup-id urxvt +tr -name todoList -cd $HOME"/Documents/todo/" #-e 't ls'
-    #for_window [class="URxvt" instance="todoList"] move scratchpad
+    exec --no-startup-id setxkbmap -option ctrl:nocaps
+    exec --no-startup-id urxvt -name proxy_status -cd ~/shadowsocks -e ./proxy.sh 2
+    for_window [class="URxvt" instance="proxy_status"] move Workspace 10
 
     exec --no-startup-id ~/.bash/exec_folder_all.sh ~/.config/autostart/ &
 # }}}
@@ -251,7 +251,7 @@ bindsym $mod+grave exec --no-startup-id i3-msg '[con_mark="1"] focus'
     bindsym XF86Sleep exec i3lock -d -c 444444
     bindsym XF86Tools exec --no-startup-id synclient TouchpadOff=$(synclient -l|grep -c 'TouchpadOff.*=.*0')
     # lock screen
-    bindsym $alt+$mod+$shift+l exec i3lock -d -c 444444
+    bindsym $ctrl+$mod+$shift+l exec i3lock -d -c 444444
 
     # Screenshot
     bindsym Print exec --no-startup-id scrot -e 'mv $f ~/Documents/Pictures/screenshot/ 2>/dev/null'
