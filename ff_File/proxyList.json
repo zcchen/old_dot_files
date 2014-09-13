@@ -1,6 +1,13 @@
 {"patterns":
     [
         {"enabled":true,
+           "name":"pixnet.net",
+           "pattern":"*.pixnet.net",
+           "isRegEx":false,
+           "caseSensitive":false,
+           "blackList":false,
+           "multiLine":false},
+        {"enabled":true,
            "name":"fc2",
            "pattern":"*.fc2.co*",
            "isRegEx":false,
