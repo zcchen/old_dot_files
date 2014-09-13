@@ -12,12 +12,6 @@ alias l=ls
 #PS1='[`date +%R:%S` \u@\h \W]\$ '
 #PS1='\[\033[01;32m\]`date +%R:%S` \u@\h\[\033[01;34m\] \w\$\[\033[00m\] '
 PS1='\[\033[01;32m\]\t \u \[\033[01;34m\]\w\$\[\033[00m\] '
-export PATH="$PATH:$HOME/.bash"
-export PATH="$PATH:/opt/dassault-systemes/DraftSight/Linux/"
-export PATH="$PATH:/opt/android-sdk/tools:/opt/java/bin"
-export PATH="$PATH:/opt/android-sdk/platform-tools/"
-export PATH="$PATH:/opt/matlab/R2013a/bin/"
-export PATH="$PATH:$HOME/.cabal/bin/"
 
 source ~/.profile
 #export USE_CCACHE=1

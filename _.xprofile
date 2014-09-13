@@ -9,3 +9,10 @@
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
+
+export PATH="$PATH:$HOME/.bash"
+export PATH="$PATH:/opt/dassault-systemes/DraftSight/Linux/"
+export PATH="$PATH:/opt/android-sdk/tools:/opt/java/bin"
+export PATH="$PATH:/opt/android-sdk/platform-tools/"
+export PATH="$PATH:/opt/matlab/R2013a/bin/"
+export PATH="$PATH:$HOME/.cabal/bin/"
