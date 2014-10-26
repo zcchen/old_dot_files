@@ -1,6 +1,6 @@
 [Hotkey]
 # Trigger Input Method
-TriggerKey=CTRL_SPACE
+#TriggerKey=CTRL_SPACE
 # Use extra trigger key only after using it to inactivate
 # Available Value:
 # True False
@@ -27,7 +27,7 @@ TriggerKey=CTRL_SPACE
 # Super+Right Ctrl
 # Disabled
 # Custom
-SwitchKey=L_SHIFT
+#SwitchKey=L_SHIFT
 # Custom switch key
 #CustomSwitchKey=
 # Activate input method
@@ -37,7 +37,7 @@ SwitchKey=L_SHIFT
 # Enable Hotkey to scroll Between Input Method
 # Available Value:
 # True False
-IMSwitchKey=False
+#IMSwitchKey=True
 # Include Inactivate when scrolling between Input Method
 # Available Value:
 # True False
@@ -48,7 +48,7 @@ IMSwitchIncludeInactive=True
 # ALT_SHIFT
 # CTRL_SUPER
 # ALT_SUPER
-IMSwitchHotkey=CTRL_SHIFT
+#IMSwitchHotkey=CTRL_SHIFT
 # Reload configuration
 #ReloadConfig=CTRL_5
 # Interval of Two Key Input
@@ -89,7 +89,7 @@ IMSwitchHotkey=CTRL_SHIFT
 # Available Value:
 # Inactive
 # Active
-DefaultInputMethodState=Inactive
+#DefaultInputMethodState=Inactive
 
 [Output]
 # Type half width Punc After a Number
@@ -103,7 +103,7 @@ DefaultInputMethodState=Inactive
 # Commit when toggle state
 # Available Value:
 # True False
-SendTextWhenSwitchEng=True
+#SendTextWhenSwitchEng=True
 # Candidate Word Number
 #CandidateWordNumber=5
 # Give the tips of Phrase
