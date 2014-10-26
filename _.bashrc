@@ -71,3 +71,6 @@ alias simutrans="simutrans -use_hw -pause"
 
 # Skype Setting for uncomman pulseAudio Problem
 export PULSE_LATENCY_MSEC=60
+
+# Reboot to Windows
+alias reboot_win="sudo grub-reboot 2 && reboot"
