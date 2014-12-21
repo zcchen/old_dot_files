@@ -87,31 +87,41 @@ otherLink() {
             fi
         done
     else
-        echo "************************************"
-        echo "Some files could not be linked well!"
-        echo "Please check the script and edit it!"
-        echo "************************************"
+        echo "**************************************"
+        echo "*Some files could not be linked well!*"
+        echo "*Please check the script and edit it!*"
+        echo "**************************************"
     fi
+}
+
+update_submodule() {
+    cd $(dirname $0)/_.vimperator/plugins
+    git pull
 }
 
 
 if [[ -z $1 ]] && [[ $1 != 'remove' ]] && [[ $1 != 'link' ]]; then
-    echo "Usage: link.sh (link | remove)"
+    echo "Usage: link.sh <link | remove | update>"
     echo "    link, create the soft link to the ~/ directory."
     echo "      Some file in the ignore group will be link to "
     echo "      the other directory."
     echo "    remove, remove all the soft link."
+    echo "    update, update the submodules."
 else
-    if [[ -f linkScript.sh ]]; then
-        rm linkScript.sh
+    if [[ $1 = 'remove' ]] || [[ $1 = 'link' ]]; then
+        if [[ -f linkScript.sh ]]; then
+            rm linkScript.sh
+        fi
+        #linkCommand $1                         For test
+        linkCommand $1 |tee -a linkScript.sh   # Generate the script command
+        #otherLink $1
+        otherLink $1 |tee -a linkScript.sh
+        chmod +x linkScript.sh
+        ./linkScript.sh
+        rm ./linkScript.sh
+    elif [[ $1 = 'update' ]]; then
+        update_submodule
     fi
-    #linkCommand $1                         For test
-    linkCommand $1 |tee -a linkScript.sh   # Generate the script command
-    #otherLink $1
-    otherLink $1 |tee -a linkScript.sh
-    chmod +x linkScript.sh
-    ./linkScript.sh
-    rm ./linkScript.sh
 fi
 
 # vim: sw=4 sts=4 et tw=70
