@@ -17,9 +17,9 @@ set hintchars=;fjdkghsla
 highlight -append Hint text-transform:uppercase; font-size: 9pt !important;
 
 " 中文输入法打开的时候，hints下的自动关闭
-noremap <silent> f :!fcitx-remote -c<cr>qf
-noremap <silent> F :!fcitx-remote -c<cr>qF
-noremap <silent> : :!fcitx-remote -c<cr>q:
+noremap <silent> f :!fcitx-remote -c<cr><Esc>f
+noremap <silent> F :!fcitx-remote -c<cr><Esc>F
+noremap <silent> : :!fcitx-remote -c<cr><Esc>:
 
 noremap <silent> <leader>apa :ap a<cr>
 noremap <silent> <leader>apd :ap d<cr>
