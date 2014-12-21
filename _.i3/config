@@ -39,7 +39,9 @@ font pango:DejaVu Sans Mono, Terminal Bold Semi-Condensed 9.5
     set $filem_gui spacefm
 
     # Wallpapers
-    exec --no-startup-id feh --bg-max --no-fehbg ~/Pictures/Pictures/git/git-cheat-sheet-large.png
+    #exec --no-startup-id feh --bg-max --no-fehbg ~/Pictures/Pictures/git/git-cheat-sheet-large.png
+    exec --no-startup-id feh --bg-max --no-fehbg ~/Pictures/Pictures/vimperator.png
+    #exec --no-startup-id feh --bg-max --no-fehbg ~/Pictures/Pictures/wallpapers/凌波MM-死库水.jpg
 
     # auto start
     exec --no-startup-id setxkbmap -option ctrl:nocaps
@@ -52,7 +54,7 @@ font pango:DejaVu Sans Mono, Terminal Bold Semi-Condensed 9.5
 
 # General settings              {{{
     hide_edge_borders both
-    floating_modifier $mod
+    floating_modifier $shift
     default_orientation auto
     #default_orientation horizontal|vertical
     focus_follows_mouse no
