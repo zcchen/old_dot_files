@@ -92,6 +92,7 @@ font pango:DejaVu Sans Mono, Terminal Bold Semi-Condensed 9.5
     assign [class="(?i)virtualbox"] "5"
     assign [class="(?i)Wine"] "5"
     assign [class="(?i)XMind"] "3: work"
+    assign [class="(?i)Steam"] "6"
 #                                           }}}
 
 # floating windows {{{
@@ -125,6 +126,7 @@ font pango:DejaVu Sans Mono, Terminal Bold Semi-Condensed 9.5
     for_window [class="(?i)com-mathworks-util-PostVMInit"] layout tabbed
     # matlab R2013a
     for_window [class="(?i)zathura"] layout tabbed
+    for_window [class="(?i)Steam"] layout tabbed
 #                                           }}}
 
 # mount option
