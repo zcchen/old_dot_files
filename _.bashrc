@@ -55,7 +55,6 @@ complete -cf {sudo,proxychains,systemctl}
 alias clockUpdate='sudo systemctl stop ntpd && sudo ntpd -qg && sudo hwclock -uw && sudo systemctl start ntpd'
 alias pwdcd="pwd | xsel -ib"
 alias cdpwd="cd $(xsel -ob)"
-alias create_ap="echo -e 'Disable dnscrypt-proxy\n' && sudo systemctl stop dnscrypt-proxy && sudo create_ap"
 alias my_create_ap="sudo systemctl stop dnscrypt-proxy && sudo ~/.myPasswd/my_create_ap.sh"
 
 # check the window size after each command and, if necessary,

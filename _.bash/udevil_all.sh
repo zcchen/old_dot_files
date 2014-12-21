@@ -9,6 +9,7 @@ udevil_act() {
         return 2
     else
         if [[ $1 == "mount" ]] || [[ $1 == "umount" ]]; then
+            #if pwd="/media/*"
             mountStat=$(udevil $1 $2 2>&1)
             if [[ $? -ne 0 ]]; then
                 notify-send "Fail to $1 $2" \
