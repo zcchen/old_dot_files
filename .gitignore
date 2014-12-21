@@ -1,5 +1,4 @@
 # ignore the editor swap file
 *.sw*
 *~
-_.vimperator/info
 _.i3/i3log
