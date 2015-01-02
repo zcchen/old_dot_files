@@ -1,0 +1,12 @@
+--- _python.snippets	2013-03-04 16:10:36.577041179 +0800
++++ python.snippets	2013-03-04 15:14:45.233676618 +0800
+@@ -1,6 +1,9 @@
+ snippet #!
+ 	#!/usr/bin/env python
+ 
++snippet utf8
++	# -*-   encoding : utf8   -*-
++
+ snippet imp
+ 	import ${1:module}
+ # Module Docstring

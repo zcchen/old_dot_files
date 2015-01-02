@@ -1,0 +1,4 @@
+passwd.vim
+!undodir/.gitignore
+!plugin/.gitignore
+!bundle/.gitignore
