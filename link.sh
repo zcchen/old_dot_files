@@ -8,8 +8,8 @@ rmcmd="rm "
 ignoreFiles=(
     _.ssh-config
     _.zathurarc
-    _.vim_myPlugins
-    _vim_bundle.vim
+#_.vim_myPlugins
+#_vim_bundle.vim
     _.fcitx_config
     _.fcitx_profile
     _.fcitx_conf
@@ -20,8 +20,8 @@ ignoreFiles=(
 ignoreFileTargets=(
     ~/.ssh/config
     ~/.config/zathura/zathurarc
-    ~/.vim/myPlugins
-    ~/.vim/bundle.vim
+#   ~/.vim/myPlugins
+#    ~/.vim/bundle.vim
     ~/.config/fcitx/config
     ~/.config/fcitx/profile
     ~/.config/fcitx/conf

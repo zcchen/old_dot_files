@@ -24,17 +24,17 @@
 
 " =========== source all plugins ========
 source ~/.vim/bundle.vim
-source ~/.vim/myPlugins/myFunc.vim
-source ~/.vim/myPlugins/maxUndo.vim         "max undoes
+source ~/.vim/my_plugins/myFunc.vim
+source ~/.vim/my_plugins/maxUndo.vim         "max undoes
 "nmap ssa :call SaveSession()
 "nmap sso :call RestoreSession()
-source ~/.vim/myPlugins/LanguageToolUpdate.vim
-"source ~/.vim/myPlugins/escalt.vim          "alt key enable
+source ~/.vim/my_plugins/LanguageToolUpdate.vim
+"source ~/.vim/my_plugins/escalt.vim          "alt key enable
 "set ttimeoutlen =10
 " if the terminal env is rxvt, bugs will come out when macro is called
-source ~/.vim/myPlugins/patches4plugin.vim  " snippet Addon quotation
-source ~/.vim/myPlugins/cscopeQuickfix.vim " cscope Quickfix mode
-source ~/.vim/myPlugins/countChs.vim        " count the chinese characters
+source ~/.vim/my_plugins/patches4plugin.vim  " snippet Addon quotation
+source ~/.vim/my_plugins/cscopeQuickfix.vim " cscope Quickfix mode
+source ~/.vim/my_plugins/countChs.vim        " count the chinese characters
 source ~/.vim/passwd.vim                    " Set some devel token or password here
 
 "source ~/.vim/myPlugins/tikz_preview.vim
