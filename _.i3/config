@@ -28,7 +28,7 @@ font pango:DejaVu Sans Mono, Terminal Bold Semi-Condensed 9.5
     # monitors
     set $mon_lap LVDS
     set $mon_ext VGA-0
-    set $mon_hdmi hdmi-0
+    set $mon_hdmi HDMI-0
 
     # misc
     set $term urxvtc
@@ -50,6 +50,7 @@ font pango:DejaVu Sans Mono, Terminal Bold Semi-Condensed 9.5
     for_window [class="URxvt" instance="proxy_status"] move Workspace 10
 
     exec --no-startup-id ~/.bash/exec_folder_all.sh ~/.config/autostart/ &
+    exec --no-startup-id xrandr --output $mon_lap --mode "1366x768" --auto --primary
 # }}}
 
 # General settings              {{{
@@ -74,11 +75,16 @@ font pango:DejaVu Sans Mono, Terminal Bold Semi-Condensed 9.5
     #workspace "4: media" output $mon_lap $mon_hdmi $mon_ext
     workspace "4: media" output $mon_lap
     workspace 5 output $mon_lap
-    workspace 6 output $mon_ext
-    workspace 7 output $mon_ext
-    workspace 8 output $mon_ext
-    workspace 9 output $mon_ext
-    workspace 10 output $mon_ext
+    #workspace 6 output $mon_ext
+    #workspace 7 output $mon_ext
+    #workspace 8 output $mon_ext
+    #workspace 9 output $mon_ext
+    #workspace 10 output $mon_ext
+    workspace 6 output $mon_hdmi
+    workspace 7 output $mon_hdmi
+    workspace 8 output $mon_hdmi
+    workspace 9 output $mon_hdmi
+    workspace 10 output $mon_hdmi
 # }}}
 
 # assign windows                            {{{
@@ -189,14 +195,14 @@ mode "Mouse Left/Right" {
 bindsym $mod+p mode "Mouse Left/Right"
 
 mode "monitor_select" {
-    bindsym h exec --no-startup-id xrandr --output $mon_lap --primary --auto --output $mon_ext --auto --left-of $mon_lap --primary ; mode "default"
-    bindsym j exec --no-startup-id xrandr --output $mon_lap --primary --auto --output $mon_ext --auto --below-of $mon_lap --primary ; mode "default"
-    bindsym k exec --no-startup-id xrandr --output $mon_lap --primary --auto --output $mon_ext --auto --above-of $mon_lap --primary ; mode "default"
-    bindsym l exec --no-startup-id xrandr --output $mon_lap --primary --auto --output $mon_ext --auto --right-of $mon_lap --primary ; mode "default"
-    bindsym H exec --no-startup-id xrandr --output $mon_lap --primary --auto --output $mon_hdmi --auto --left-of $mon_lap --primary ; mode "default"
-    bindsym J exec --no-startup-id xrandr --output $mon_lap --primary --auto --output $mon_hdmi --auto --below-of $mon_lap --primary ; mode "default"
-    bindsym K exec --no-startup-id xrandr --output $mon_lap --primary --auto --output $mon_hdmi --auto --above-of $mon_lap --primary ; mode "default"
-    bindsym L exec --no-startup-id xrandr --output $mon_lap --primary --auto --output $mon_hdmi --auto --right-of $mon_lap --primary ; mode "default"
+    bindsym h exec --no-startup-id xrandr --output $mon_lap --primary --auto --output $mon_ext --auto --left-of $mon_lap; mode "default"
+    bindsym j exec --no-startup-id xrandr --output $mon_lap --primary --auto --output $mon_ext --auto --below-of $mon_lap; mode "default"
+    bindsym k exec --no-startup-id xrandr --output $mon_lap --primary --auto --output $mon_ext --auto --above-of $mon_lap; mode "default"
+    bindsym l exec --no-startup-id xrandr --output $mon_lap --primary --auto --output $mon_ext --auto --right-of $mon_lap; mode "default"
+    bindsym $shift+h exec --no-startup-id xrandr --output $mon_lap --primary --auto --output $mon_hdmi --auto --left-of $mon_lap; mode "default"
+    bindsym $shift+j exec --no-startup-id xrandr --output $mon_lap --primary --auto --output $mon_hdmi --auto --below-of $mon_lap; mode "default"
+    bindsym $shift+k exec --no-startup-id xrandr --output $mon_lap --primary --auto --output $mon_hdmi --auto --above-of $mon_lap; mode "default"
+    bindsym $shift+l exec --no-startup-id xrandr --output $mon_lap --primary --auto --output $mon_hdmi --auto --right-of $mon_lap; mode "default"
     bindsym 1 exec --no-startup-id xrandr --output $mon_lap --primary --auto --output $mon_ext --off --output $mon_hdmi --off; mode "default"
     bindsym c exec --no-startup-id xrandr --output $mon_lap --primary --auto --output $mon_ext --auto --same-as $mon_lap --primary --output $mon_hdmi --auto --same-as $mon_lap ; mode "default"
     bindsym $mod+h move container to output left; mode "default"
@@ -207,8 +213,39 @@ mode "monitor_select" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
     bindsym $ctrl+bracketleft mode "default"
+    # sub mode:
+    bindsym $mod+h mode "VGA-rotate"
+    bindsym $mod+$shift+h mode "HDMI-rotate"
+    bindsym $mod+d mode "Display_Where_Setting"
 }
 bindsym $mod+$shift+m mode "monitor_select"
+mode "VGA-rotate" {
+    bindsym h exec --no-startup-id xrandr --output $mon_ext --rotate left; mode "default"
+    bindsym j exec --no-startup-id xrandr --output $mon_ext --rotate normal; mode "default"
+    bindsym k exec --no-startup-id xrandr --output $mon_ext --rotate inverted; mode "default"
+    bindsym l exec --no-startup-id xrandr --output $mon_ext --rotate right; mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $ctrl+bracketleft mode "default"
+}
+mode "HDMI-rotate" {
+    bindsym h exec --no-startup-id xrandr --output $mon_hdmi --rotate left; mode "default"
+    bindsym j exec --no-startup-id xrandr --output $mon_hdmi --rotate normal; mode "default"
+    bindsym k exec --no-startup-id xrandr --output $mon_hdmi --rotate inverted; mode "default"
+    bindsym l exec --no-startup-id xrandr --output $mon_hdmi --rotate right; mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $ctrl+bracketleft mode "default"
+}
+mode "Display_Where_Setting" {
+    bindsym h exec --no-startup-id xrandr --output $mon_lap --mode "1366x768" --auto --primary --output $mon_hdmi --mode "1920x1200" --left-of $mon_lap --rotate left; mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $ctrl+bracketleft mode "default"
+}
 
 # keyboard
 #bindcode $ctrl+66 exec --no-startup-id setxkbmap -option ctrl:nocaps
