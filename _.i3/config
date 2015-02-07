@@ -44,7 +44,7 @@ font pango:DejaVu Sans Mono, Terminal Bold Semi-Condensed 9.5
     #exec --no-startup-id feh --bg-max --no-fehbg ~/Pictures/Pictures/wallpapers/凌波MM-死库水.jpg
 
     # auto start
-    exec --no-startup-id setxkbmap -option ctrl:nocaps
+    #exec --no-startup-id setxkbmap -option ctrl:nocaps
     exec --no-startup-id xbindkeys
     exec --no-startup-id urxvt -name proxy_status -cd ~/shadowsocks -e ./proxy.sh 2
     for_window [class="URxvt" instance="proxy_status"] move Workspace 10
