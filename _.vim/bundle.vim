@@ -8,6 +8,7 @@ Bundle 'taxilian/a.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'majutsushi/tagbar'
 "Bundle 'johnbintz/vim-taglist-plus'
+Bundle 'tpope/vim-fugitive.git'
 " ====== complete =======
 "Bundle 'vim-scripts/pythoncomplete'
 Bundle 'davidhalter/jedi-vim'
