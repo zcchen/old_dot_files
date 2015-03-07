@@ -324,7 +324,7 @@ nnoremap <leader>transp :call MolokaiTransp(!g:MolokaiTransp_On)<CR>
 nnoremap <leader>vimrc :vsp $MYVIMRC <CR>
 nmap <S-F4> :call Chmodx()<CR>
 " --------- Tikz_Preview ---------
-let g:Tikz_latex_template = $HOME.'/.vim/myPlugins/tikz2pdf.latex'
+let g:Tikz_latex_template = $HOME.'/.vim/my_plugins/tikz2pdf.latex'
 
 " ---------- 论文写作 ----------
 nmap <leader>bib ^f{lyt,
