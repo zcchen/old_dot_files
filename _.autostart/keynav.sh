@@ -1,4 +1,4 @@
 #!/bin/bash
 
-#killall keynav
+killall keynav
 keynav &
