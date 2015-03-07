@@ -65,6 +65,9 @@ shopt -s checkwinsize
 mkdir -p /tmp/go
 export GOPATH=/tmp/go
 
+# Grep
+alias grep="grep -a"
+
 # Game Simutrans
 alias simutrans="simutrans -use_hw -pause"
 
@@ -72,4 +75,4 @@ alias simutrans="simutrans -use_hw -pause"
 export PULSE_LATENCY_MSEC=60
 
 # Reboot to Windows
-alias reboot_win="sudo grub-reboot 2 && reboot"
+alias reboot_win="sudo grub-reboot 4 && reboot"
