@@ -28,6 +28,7 @@
   \fi
 \fi
 
+\usepackage{relsize}
 \usepackage{geometry}
 \usepackage{fancyhdr}
 \fancypagestyle{tmp}
