@@ -33,7 +33,7 @@ source ~/.vim/my_plugins/LanguageToolUpdate.vim
 "set ttimeoutlen =10
 " if the terminal env is rxvt, bugs will come out when macro is called
 source ~/.vim/my_plugins/patches4plugin.vim  " snippet Addon quotation
-source ~/.vim/my_plugins/cscopeQuickfix.vim " cscope Quickfix mode
+"source ~/.vim/my_plugins/cscopeQuickfix.vim " cscope Quickfix mode
 source ~/.vim/my_plugins/countChs.vim        " count the chinese characters
 source ~/.vim/passwd.vim                    " Set some devel token or password here
 
@@ -157,7 +157,8 @@ let c_comment_strings=1         "highlighting strings inside C comments
 
 " ============ Plugins Settings =============
 "------- ctags & Tagbar / TagList --------------
-set tags=tags,tags;
+"set tags=tags,tags;
+set tags=./tags,./../tags,./../../tags,./../../../tags,tags
 nmap <leader>ctags   :!ctags --c++-kinds=+p --fields=+iaS --links=yes --extra=+q -R *
 let g:tagbar_ctags_bin = '/usr/bin/ctags'
 let g:tabbar_autoshowtag =1

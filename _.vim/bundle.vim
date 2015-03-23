@@ -34,7 +34,7 @@ Bundle 'matchit.zip'
 "Bundle 'DoxygenToolkit.vim'
 "Bundle 'DoxyGen-Syntax'
 "Bundle 'cscope_macros.vim'
-Bundle 'brookhong/cscope.vim'
+"Bundle 'brookhong/cscope.vim'
 Bundle 'PotatoesMaster/i3-vim-syntax'
 Bundle 'http://fedorapeople.org/cgit/wwoods/public_git/vim-scripts.git'
 " ===== text =====
