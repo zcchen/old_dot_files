@@ -34,16 +34,16 @@ port_random = yes
 ######开启DHT######
 dht = on
 #DHT所用的UDP端口
-dht_port = 9501   
+dht_port = 9501
 #种子交换功能
 peer_exchange = yes
 
 #（上传缓存,每个种子10M,小内存用户请酌情修改）
-#send_buffer_size = 10000 
+#send_buffer_size = 10000
 #（下载缓存,每个种子20M,小内存用户请酌情修改）
 #receive_buffer_size = 20M
 #(修改编码以避免中文乱码）
-encoding_list=UTF-8 
+encoding_list=UTF-8
 
 # 下载完成时进行校验。 也许在造成磁盘空间不足这一 bug 被有效的改变之前，这一选项都将非常有效。
 check_hash = yes
@@ -55,7 +55,8 @@ check_hash = yes
 # 如行不通则以加密方式进行重试，在加密握手后，优先选择将纯文本以 RC4 加密
 #
 # encryption = allow_incoming,enable_retry,prefer_plaintext
-encryption = allow_incoming,try_outgoing,enable_retry
+#encryption = allow_incoming,try_outgoing,enable_retry
+encryption = require,require_RC4,allow_incoming,try_outgoing
 
 #scgi_port = localhost:5000
 
