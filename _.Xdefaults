@@ -47,8 +47,8 @@
         URxvt*.meta8: True
         URxvt*.iso14755: False
     ! font
-        !URxvt*.font:xft:Monaco:pixelsize=10,xft:WenQuanYi Micro Hei:pixelsize=15
-        URxvt*.font:xft:DejaVu Sans Mono:pixelsize=14,xft:WenQuanYi Micro Hei:pixelsize=20
+        !URxvt*.font:xft:Monaco:pixelsize=16,xft:WenQuanYi Micro Hei:pixelsize=20
+        URxvt*.font:xft:DejaVu Sans Mono:pixelsize=16,xft:WenQuanYi Micro Hei:pixelsize=20
         URxvt*.letterSpace: 0
     ! Extensions
         URxvt*.perl-lib: /usr/lib/urxvt/perl/
