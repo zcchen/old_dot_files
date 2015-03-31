@@ -92,8 +92,8 @@ else
         TARGET=$1
     fi
     cd $TARGET
-    ctags *
-    find * -type d -prune -print | ctags -aR --file-scope=no -L-
+    ctags * --c++-kinds=+p --fields=+iaS --links=yes --extra=+q
+    find * -type d -prune -print | ctags --c++-kinds=+p --fields=+iaS --links=yes --extra=+q -aR --file-scope=no -L-
 fi
 
 # vim:ft=sh
