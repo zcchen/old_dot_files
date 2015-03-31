@@ -1,54 +1,86 @@
+#PS1='[`date +%R:%S` \u@\h \W]\$ '
+#PS1='\[\033[01;32m\]`date +%R:%S` \u@\h\[\033[01;34m\] \w\$\[\033[00m\] '
+
+############ PATH Setting ###############
+export PATH="$PATH:$HOME/.bash:"
+#export PATH="$PATH:/opt/dassault-systemes/draftsight/bin/:"
+#export PATH="$PATH:$HOME/.cabal/bin/:"
+#export PATH="$PATH:/opt/android-sdk/tools:/opt/java6/bin:"
+#export PATH="$PATH:/opt/android-sdk/platform-tools/"
+############ PATH Setting ###############
+
+############ alias Setting ###########
+source ~/.bash/alias.sh
+############ alias Setting ###########
+
+# set completion
+############# zsh completions ###########
+fpath=(/usr/share/zsh/site-functions/   $fpath)
+# Populate hostname completion.
+zstyle -e ':completion:*:hosts' hosts 'reply=(
+${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) 2>/dev/null)"}%%[#| ]*}//,/ }
+${=${(f)"$(cat /etc/hosts(|)(N) <<(ypcat hosts 2>/dev/null))"}%%\#*}
+${=${${${${(@M)${(f)"$(cat ~/.ssh/config 2>/dev/null)"}:#Host *}#Host }:#*\**}:#*\?*}}
+)'
+# Don't complete uninteresting users
+zstyle ':completion:*:*:*:users' ignored-patterns \
+        adm amanda apache avahi beaglidx bin cacti canna clamav daemon \
+        dbus distcache dovecot fax ftp games gdm gkrellmd gopher \
+        hacluster haldaemon halt hsqldb ident junkbust ldap lp mail \
+        mailman mailnull mldonkey mysql nagios \
+        named netdump news nfsnobody nobody nscd ntp nut nx openvpn \
+        operator pcap postfix postgres privoxy pulse pvm quagga radvd \
+        rpc rpcuser rpm shutdown squid sshd sync uucp vcsa xfs
+
+# SSH/SCP/RSYNC
+zstyle ':completion:*:(scp|rsync):*' tag-order 'hosts:-host:host hosts:-domain:domain hosts:-ipaddr:ip\ address *'
+zstyle ':completion:*:(scp|rsync):*' group-order users files all-files hosts-domain hosts-host hosts-ipaddr
+zstyle ':completion:*:ssh:*' tag-order users 'hosts:-host:host hosts:-domain:domain hosts:-ipaddr:ip\ address *'
+zstyle ':completion:*:ssh:*' group-order hosts-domain hosts-host users hosts-ipaddr
+zstyle ':completion:*:(ssh|scp|rsync):*:hosts-host' ignored-patterns '*(.|:)*' loopback ip6-loopback localhost ip6-localhost broadcasthost
+zstyle ':completion:*:(ssh|scp|rsync):*:hosts-domain' ignored-patterns '<->.<->.<->.<->' '^[-[:alnum:]]##(.[-[:alnum:]]##)##' '*@*'
+zstyle ':completion:*:(ssh|scp|rsync):*:hosts-ipaddr' ignored-patterns '^(<->.<->.<->.<->|(|::)([[:xdigit:].]##:(#c,2))##(|%*))' '127.0.0.<->' '255.255.255.255' '::1' 'fe80::*'
+############# zsh completions ###########
+
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="prose"
+ZSH_THEME="dst"
+
+############# History setting #########
+HIST_STAMPS="mm/dd/yyyy"
+############# History setting #########
+plugins=(archlinux battery cp git per-directory-history sudo systemd vi-mode)
+# vim-interaction)
 
 # some basic stuffs
 export EDITOR=vim
 export GRAPHIC_EDITOR="gvim"
 
-export HISTSIZE=65535
+## check the window size after each command and, if necessary,
+## update the values of LINES and COLUMNS.
+##shopt -s checkwinsize
 
-alias ls='ls --color=auto'
-alias ll='ls -l --color=auto'
-alias l=ls
-#PS1='[`date +%R:%S` \u@\h \W]\$ '
-#PS1='\[\033[01;32m\]`date +%R:%S` \u@\h\[\033[01;34m\] \w\$\[\033[00m\] '
-PS1='\[\033[01;32m\]\t \u \[\033[01;34m\]\w\$\[\033[00m\] '
-export PATH="$PATH:$HOME/.bash:"
-export PATH="$PATH:/opt/dassault-systemes/draftsight/bin/:"
-export PATH="$PATH:$HOME/.cabal/bin/:"
-export PATH="$PATH:/opt/android-sdk/tools:/opt/java6/bin:"
-export PATH="$PATH:/opt/android-sdk/platform-tools/"
 
-alias v='vim'
-alias vimrc='vim ~/.vimrc'
-alias ctags='ctags --c++-kinds=+p --fields=+iaS --extra=+q'
+source $ZSH/oh-my-zsh.sh
 
-alias pacman='sudo pacman'
-#alias wine="env LANG=en_US.UTF-8 wine"
-alias xterm='xterm -class 256color'
-alias w3m='w3m -cookie -graph -F -num'
 
-#set bash work like vi.
-#set -o vi
-alias info='info --vi-keys'
-alias lynx='lynx -vikeys'
+###########################################
+######## AFTER source oh-my-zsh.sh ########
+###########################################
 
-alias aurploader='aurploader -nk'
+export KEYTIMEOUT=1
+old_RPS1=${RPS1}
+function zle-line-init zle-keymap-select {
+    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]% %{$reset_color%}"
+    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $(git_custom_status) $EPS1"${old_RPS1}
+    #if [[ $(fcitx-remote) -eq 2 ]]; then
+        #fcitx-remote -c
+        #FCITX_TIGGER=true
+    #elif [[ $FCITX_TIGGER ]]; then
+        #fcitx-remote -o
+        #FCITX_TIGGER=false
+    #fi
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
 
-# set bash completion
-source /usr/share/git/completion/git-completion.bash        #git
-source /usr/share/doc/pkgfile/command-not-found.bash        #pkgfile
-#complete -cf {pacman,packer}
-complete -cf {sudo,proxychains,systemctl}
-
-alias clockUpdate='sudo ntpd -qg && sudo hwclock -w'
-alias pwdcd="pwd | xsel -ib"
-alias cdpwd="cd $(xsel -ob)"
-
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
-
-#go init
-mkdir -p /tmp/go
-export GOPATH=/tmp/go
