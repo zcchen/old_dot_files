@@ -9,10 +9,20 @@ alias v='vim'
 alias vimrc='vim ~/.vimrc'
 alias ctags='ctags --c++-kinds=+p --fields=+iaS --extra=+q'
 
-alias pacman='sudo pacman'
 #alias wine="env LANG=en_US.UTF-8 wine"
 alias xterm='xterm -class 256color'
 alias w3m='w3m -cookie -graph -F -num'
+
+# pacman command setting
+#alias pacman='sudo pacman'
+function pacman() {
+    if [[ $1 == '-Syu' ]]; then
+        command sudo pkgfile -u
+        command sudo pacman "$@"
+    else
+        command sudo pacman "$@"
+    fi
+}
 
 #set bash work like vi.
 #set -o vi
@@ -39,6 +49,9 @@ alias simutrans="simutrans -use_hw -pause"
 
 # tsocks proxy
 #alias tsocks='TSOCKS_CONF_FILE=~/.tsocks.conf tsocks '
+
+# matlab
+alias matlab="matlab -nosplash"
 
 # Grep
 #alias grep="grep -a"
