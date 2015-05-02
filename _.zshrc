@@ -84,3 +84,6 @@ function zle-line-init zle-keymap-select {
 zle -N zle-line-init
 zle -N zle-keymap-select
 
+############# Command not found hook#############
+source /usr/share/doc/pkgfile/command-not-found.zsh
+############# Command not found hook#############
