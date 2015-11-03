@@ -18,3 +18,5 @@ export PATH="$PATH:/opt/matlab/R2013a/bin/"
 export PATH="$PATH:$HOME/.cabal/bin/"
 
 #alias steam="proxychains steam"
+
+~/.bash/exec_folder_all.sh ~/.config/autostart/
