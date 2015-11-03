@@ -7,23 +7,23 @@ ControlPath /tmp/ssh_mux_%h_%p_%r
 ForwardAgent yes
 #ControlPersist 1h
 
-host bitbucket.com
+host bitbucket.com bitbucket.org
   user git
   hostname bitbucket.com
   port 22
-  identityfile ~/.ssh/bitbucket
+  IdentityFile ~/.ssh/bitbucket
 
 host github.com
   user git
-  hostname github.com
+  #hostname github.com
   port 22
-  identityfile ~/.ssh/github
+  IdentityFile ~/.ssh/github
 
 host gitcafe.com
   user git
-  hostname gitcafe.com
+  #hostname gitcafe.com
   port 22
-  identityfile ~/.ssh/gitcafe
+  IdentityFile ~/.ssh/gitcafe
 
 # vim: ft=sshconfig
 
