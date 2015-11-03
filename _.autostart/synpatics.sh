@@ -2,4 +2,4 @@
 
 killall syndaemon
 syndaemon -i 2 -dtk &
-synclient TouchpadOff=1
+#synclient TouchpadOff=1
