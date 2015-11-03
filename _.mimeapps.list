@@ -9,4 +9,5 @@ image/jpeg=viewnior.desktop;feh.desktop;
 image/png=viewnior.desktop;
 
 [Default Applications]
-inode/directory=spacefm-folder-handler.desktop
+#inode/directory=spacefm-folder-handler.desktop
+inode/directory=qtfm.desktop
