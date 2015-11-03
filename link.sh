@@ -13,6 +13,7 @@ ignoreFiles=(
     _.fcitx_config
     _.fcitx_profile
     _.fcitx_conf
+    _.fcitx_data
     _.mimeapps.list
     _.autostart
     _.dunstrc
@@ -25,6 +26,7 @@ ignoreFileTargets=(
     ~/.config/fcitx/config
     ~/.config/fcitx/profile
     ~/.config/fcitx/conf
+    ~/.config/fcitx/data
     ~/.local/share/applications/mimeapps.list
     ~/.config/autostart
     ~/.config/dunst/dunstrc
