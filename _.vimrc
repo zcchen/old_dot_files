@@ -239,6 +239,9 @@ let g:fencview_autodetect=0
 " --------------- Pyclewn --------------------
 " Pyclewn 调试 C 类程序，依此执行 :Pyclewn :Cinferiortty 然后就是正常的gdb命令
 " 调试了
+"
+" -------------- Jedi-vim python autocomplete ----------
+let g:jedi#force_py_version = 3
 
 " =============== autocmd command ===============
 autocmd! InsertLeave * if pumvisible() == 0|pclose|endif
@@ -260,6 +263,7 @@ autocmd FileType pandoc setlocal textwidth=0 list "formatoptions-=l
 " 显示行标志位，输入过程中自动换行
 autocmd FileType c,cpp setlocal cinoptions=:0,g0,(0,w1 shiftwidth=4 tabstop=4
 autocmd FileType diff  setlocal shiftwidth=4 tabstop=4
+autocmd FileType xml set rtp-=~/.vim/bundle/syntastic rtp-=~/.vim/bundle/syntastic/after
 autocmd BufEnter /usr/include/c++/*    setf cpp
 "autocmd BufEnter *rc set filetype=conf
 " -------- develop -----------
@@ -284,10 +288,12 @@ let g:shareboard_command = printf('pandoc -sS --toc --webtex -c "%s" --bibliogra
     \ expand("~/.vim/shareboard/library.bib"))
 
 " =================== key mapping ==============
-map <Up> <NOP>
-map <Down> <NOP>
-map <Left> <NOP>
-map <Right> <NOP>
+"map <Up> <NOP>
+"map <Down> <NOP>
+"map <Left> <NOP>
+"map <Right> <NOP>
+map <PageUp> <C-u>
+map <PageDown> <C-d>
 map j gj
 map k gk
 inoremap jk <ESC>
@@ -335,6 +341,10 @@ nmap <leader>abib i[@]<ESC>P
 iab <expr> today_\ strftime("%Y-%m-%d")
 iab <expr> day_\ strftime("%A")
 iab <expr> time_\ strftime("%T (%Z)")
+if has('python')
+    py import uuid
+    iab <expr> uuid_\ pyeval('str(uuid.uuid4())')
+endif
 
 
 " vim:foldmethod=marker
