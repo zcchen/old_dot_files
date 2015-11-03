@@ -48,7 +48,7 @@ ZSH_THEME="dst"
 ############# History setting #########
 HIST_STAMPS="mm/dd/yyyy"
 ############# History setting #########
-plugins=(archlinux battery cp git per-directory-history sudo systemd vi-mode)
+plugins=(archlinux autojump battery colored-man colorize cp git per-directory-history sudo systemd vi-mode virtualenwrapper z)
 # vim-interaction)
 
 # some basic stuffs
