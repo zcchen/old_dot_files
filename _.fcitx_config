@@ -75,6 +75,7 @@ IMSwitchIncludeInactive=True
 #PrevWord=SHIFT_TAB
 # Next Candidate Word
 #NextWord=TAB
+SemiColonAction=QuickPhrase
 
 [Program]
 # Seconds sleep before fcitx really start
