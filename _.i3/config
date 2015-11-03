@@ -16,7 +16,6 @@
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
 # font pango:DejaVu Sans Mono 9
-font pango:DejaVu Sans Mono, Terminal Bold Semi-Condensed 9.5
 
 # Environment setttings          {{{
     # special keys
@@ -26,9 +25,15 @@ font pango:DejaVu Sans Mono, Terminal Bold Semi-Condensed 9.5
     set $shift Shift
 
     # monitors
-    set $mon_lap LVDS
+    set $mon_lap eDP1
     set $mon_ext VGA-0
-    set $mon_hdmi HDMI-0
+    set $mon_hdmi HDMI1
+
+    # resolution
+    set $resolution 1920x1080
+    # font-size
+    set $font_size 16
+    set $font_size_s 10
 
     # misc
     set $term urxvtc
@@ -37,6 +42,8 @@ font pango:DejaVu Sans Mono, Terminal Bold Semi-Condensed 9.5
     set $browser firefox
     #set $filem "urxvtc -e vifm"
     set $filem_gui spacefm
+
+font pango:DejaVu Sans Mono, Terminal Bold Semi-Condensed $font_size
 
     # Wallpapers
     #exec --no-startup-id feh --bg-max --no-fehbg ~/Pictures/Pictures/git/git-cheat-sheet-large.png
@@ -50,7 +57,7 @@ font pango:DejaVu Sans Mono, Terminal Bold Semi-Condensed 9.5
     for_window [class="URxvt" instance="proxy_status"] move Workspace 10
 
     exec --no-startup-id ~/.bash/exec_folder_all.sh ~/.config/autostart/ &
-    exec --no-startup-id xrandr --output $mon_lap --mode "1366x768" --auto --primary
+    exec --no-startup-id xrandr --output $mon_lap --mode "$resolution" --auto --primary
 # }}}
 
 # General settings              {{{
@@ -166,7 +173,7 @@ mode "resize" { #            {{{
 bindsym $mod+r mode "resize"
 
 mode "launch" {
-    bindsym $shift+colon exec --no-startup-id dmenu_run -i -f -nb '#444444' -nf '#dddddd' -sb '#692E81' -fn 'DejaVu Sans Mono-11' -p 'Run:'
+    bindsym $shift+colon exec --no-startup-id dmenu_run -i -f -nb '#444444' -nf '#dddddd' -sb '#692E81' -fn "DejaVu Sans Mono $font_size" -p 'Run:'
     bindsym f exec $browser; workspace 2: www; mode "default"
     bindsym d exec $filem_gui; mode "default"
     bindsym v exec $editor_gui; mode "default"
@@ -240,7 +247,7 @@ mode "HDMI-rotate" {
     bindsym $ctrl+bracketleft mode "default"
 }
 mode "Display_Where_Setting" {
-    bindsym h exec --no-startup-id xrandr --output $mon_lap --mode "1366x768" --auto --primary --output $mon_hdmi --mode "1920x1200" --left-of $mon_lap --rotate left; mode "default"
+    bindsym h exec --no-startup-id xrandr --output $mon_lap --mode "$resolution" --auto --primary --output $mon_hdmi --mode "1920x1200" --left-of $mon_lap --rotate left; mode "default"
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -271,7 +278,7 @@ bindsym $mod+grave exec --no-startup-id i3-msg '[con_mark="1"] focus'
     bindsym $mod+Escape exec --no-startup-id $term -e $editor
 
     # dmenu
-    bindsym $mod+d exec --no-startup-id dmenu_run -i -f -nb '#444444' -nf '#dddddd' -sb '#692E81' -fn 'DejaVu Sans Mono-11' -p 'Run:'
+    bindsym $mod+d exec --no-startup-id dmenu_run -i -f -nb '#444444' -nf '#dddddd' -sb '#692E81' -fn "DejaVu Sans Mono $font_size" -p 'Run:'
     #bindsym $mod+d exec --no-startup-id dmenu_run -i
     #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
@@ -411,7 +418,7 @@ bar {
     #mode default
     workspace_buttons yes
     tray_output none
-    font xft:DejaVu Sans Mono,Bold 9
+    font xft:DejaVu Sans Mono,Bold $font_size_s
     id bar-top
     status_command i3status --config ~/.i3/i3status-top.conf
     colors {
@@ -433,7 +440,7 @@ bar {
 tray_output $mon_lap
 #tray_output $mon_ext
 #    tray_output $mon_hdmi
-    font xft:DejaVu Sans Mono,Bold 9
+    font xft:DejaVu Sans Mono,Bold $font_size_s
     status_command i3status --config ~/.i3/i3status-bottom.conf
     id bar-bottom
     colors {
