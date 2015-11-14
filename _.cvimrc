@@ -50,7 +50,9 @@ map <C-i> :set numerichints!<CR>
 map <C-e> rootFrame
 map <M-h> previousTab
 map <C-d> scrollPageDown
+map <C-f> scrollFullPageDown
 map <C-u> scrollPageUp
+map <C-b> scrollFullPageUp
 iunmap <C-y>
 imap <C-m> deleteWord
 
