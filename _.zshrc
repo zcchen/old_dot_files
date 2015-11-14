@@ -87,3 +87,8 @@ zle -N zle-keymap-select
 ############# Command not found hook#############
 source /usr/share/doc/pkgfile/command-not-found.zsh
 ############# Command not found hook#############
+
+############# Local command ######################
+# For fun
+zsh ~/.bash/fbi_warning.sh
+############# Local command ######################
