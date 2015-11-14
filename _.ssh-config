@@ -9,7 +9,7 @@ ForwardAgent yes
 
 host bitbucket.com bitbucket.org
   user git
-  hostname bitbucket.com
+  hostname bitbucket.org
   port 22
   IdentityFile ~/.ssh/bitbucket
 
