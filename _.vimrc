@@ -28,7 +28,7 @@ source ~/.vim/my_plugins/myFunc.vim
 source ~/.vim/my_plugins/maxUndo.vim         "max undoes
 "nmap ssa :call SaveSession()
 "nmap sso :call RestoreSession()
-source ~/.vim/my_plugins/LanguageToolUpdate.vim
+"source ~/.vim/my_plugins/LanguageToolUpdate.vim
 "source ~/.vim/my_plugins/escalt.vim          "alt key enable
 "set ttimeoutlen =10
 " if the terminal env is rxvt, bugs will come out when macro is called
@@ -239,9 +239,20 @@ let g:fencview_autodetect=0
 " --------------- Pyclewn --------------------
 " Pyclewn 调试 C 类程序，依此执行 :Pyclewn :Cinferiortty 然后就是正常的gdb命令
 " 调试了
-"
 " -------------- Jedi-vim python autocomplete ----------
 let g:jedi#force_py_version = 3
+" -------------- YouCompleteMe ----------
+let g:ycm_python_binary_path = 'python'
+" 触发补全快捷键
+let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
+let g:ycm_auto_trigger = 1 
+" 最小自动触发补全的字符大小设置为 3
+let g:ycm_min_num_of_chars_for_completion = 3
+" -------------- UltiSnips ---------------
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
 " =============== autocmd command ===============
 autocmd! InsertLeave * if pumvisible() == 0|pclose|endif
