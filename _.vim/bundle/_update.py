@@ -14,15 +14,18 @@ for d in os.listdir(current_dir):
                 subprocess.Popen(['git', 'pull'],
                     shell=False,
                     cwd=work_d,
+                    stderr=subprocess.PIPE,
                     stdout=subprocess.PIPE)
             )
 
 try:
-    for p in procs:
-        if not p.poll():
-            p.wait()
-        else:
-            procs.remove(p)
+    while procs:
+        for p in procs:
+            # print(p.poll(), procs)
+            if p.poll() is None:
+                p.wait()
+            else:
+                procs.remove(p)
     print('Well done')
 except KeyboardInterrupt:
     for p in procs:
