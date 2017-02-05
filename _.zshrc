@@ -2,7 +2,7 @@
 #PS1='\[\033[01;32m\]`date +%R:%S` \u@\h\[\033[01;34m\] \w\$\[\033[00m\] '
 
 ############ PATH Setting ###############
-export PATH="$PATH:$HOME/.bash:"
+#export PATH="$PATH:$HOME/.bash:"
 #export PATH="$PATH:/opt/dassault-systemes/draftsight/bin/:"
 #export PATH="$PATH:$HOME/.cabal/bin/:"
 #export PATH="$PATH:/opt/android-sdk/tools:/opt/java6/bin:"
@@ -46,9 +46,9 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="dst"
 
 ############# History setting #########
-HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="yyyy-mm-dd" #"mm/dd/yyyy"
 ############# History setting #########
-plugins=(archlinux autojump battery colored-man colorize cp git per-directory-history sudo systemd vi-mode virtualenwrapper z)
+plugins=(archlinux command-not-found autojump battery colored-man colorize cp git per-directory-history python sudo systemd vi-mode virtualenwrapper z)
 # vim-interaction)
 
 # some basic stuffs
@@ -83,10 +83,6 @@ function zle-line-init zle-keymap-select {
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
-
-############# Command not found hook#############
-source /usr/share/doc/pkgfile/command-not-found.zsh
-############# Command not found hook#############
 
 ############# Local command ######################
 # For fun
