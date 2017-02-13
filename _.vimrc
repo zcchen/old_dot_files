@@ -217,11 +217,15 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
-let g:syntastic_auto_loc_list=2
+"let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+"let g:syntastic_auto_loc_list=2
 let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 let g:syntastic_enable_highlighting=1
 let g:syntastic_ignore_files=['^/usr/include/', '\c\.h$']
-let g:syntastic_c_include_dirs = [ '/usr/avr/include/']
+let g:syntastic_c_include_dirs=['/usr/avr/include', '/usr/avr/include/avr', '/usr/avr/include/util']
+"let g:syntastic_c_checkers=['gcc', 'avr-gcc']
 " see :h Syntastic for more details
 " ------------ table-mode --------------
 let g:table_mode_corner_corner = '+'
@@ -250,6 +254,9 @@ let g:ycm_auto_trigger = 1
 let g:ycm_key_invoke_completion = '<Tab>'
 " 最小自动触发补全的字符大小设置为 3
 let g:ycm_min_num_of_chars_for_completion = 3
+" C/C++ complete flag
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
 " -------------- UltiSnips ---------------
 let g:UltiSnipsExpandTrigger="<Tab>"
 let g:UltiSnipsJumpForwardTrigger="<Tab>"
@@ -298,6 +305,8 @@ let g:snips_author = 'zcchen'
 let g:shareboard_command = printf('pandoc -sS --toc --webtex -c "%s" --bibliography="%s"',
     \ expand("~/.vim/shareboard/main.css"),
     \ expand("~/.vim/shareboard/library.bib"))
+" ----------- rainbow parentheses ----------
+let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 
 " =================== key mapping ==============
 "map <Up> <NOP>
