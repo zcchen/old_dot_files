@@ -3,7 +3,9 @@
 alias ls='ls --color=auto'
 alias ll='ls -l --color=auto'
 alias l=ls
-alias sl='ls'
+#alias sl='ls'
+
+alias rm='rm -v'
 
 alias v='vim'
 alias vimrc='vim ~/.vimrc'
