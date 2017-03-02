@@ -25,6 +25,10 @@ function pacman() {
         command sudo pacman "$@"
     fi
 }
+function pacaur() {
+    mkdir -p /tmp/makepkg/{pkg,src}
+    command pacaur "$@"
+}
 
 #set bash work like vi.
 #set -o vi
