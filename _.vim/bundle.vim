@@ -18,7 +18,7 @@ Bundle 'Valloric/YouCompleteMe'
 " ===== syntax =====
 Bundle 'sudar/vim-arduino-snippets'
 Bundle 'Arduino-syntax-file'
-Bundle 'tclem/vim-arduino'
+Bundle 'stevearc/vim-arduino'
 "Bundle 'hallison/vim-markdown'
 Bundle 'vim-pandoc/vim-pandoc'
 "Bundle 'vim-pandoc/vim-pandoci-syntax'

@@ -307,6 +307,12 @@ let g:shareboard_command = printf('pandoc -sS --toc --webtex -c "%s" --bibliogra
     \ expand("~/.vim/shareboard/library.bib"))
 " ----------- rainbow parentheses ----------
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
+" ------------ Arduino -------------
+nnoremap <buffer> <leader>av :ArduinoVerify<CR>
+nnoremap <buffer> <leader>au :ArduinoUpload<CR>
+nnoremap <buffer> <leader>ad :ArduinoUploadAndSerial<CR>
+nnoremap <buffer> <leader>ab :ArduinoChooseBoard<CR>
+nnoremap <buffer> <leader>ap :ArduinoChooseProgrammer<CR>
 
 " =================== key mapping ==============
 "map <Up> <NOP>
