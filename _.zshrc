@@ -1,6 +1,3 @@
-#PS1='[`date +%R:%S` \u@\h \W]\$ '
-#PS1='\[\033[01;32m\]`date +%R:%S` \u@\h\[\033[01;34m\] \w\$\[\033[00m\] '
-
 ############ PATH Setting ###############
 #export PATH="$PATH:$HOME/.bash:"
 #export PATH="$PATH:/opt/dassault-systemes/draftsight/bin/:"
@@ -48,7 +45,11 @@ ZSH_THEME="dst"
 ############# History setting #########
 HIST_STAMPS="yyyy-mm-dd" #"mm/dd/yyyy"
 ############# History setting #########
-plugins=(archlinux command-not-found autojump battery colored-man colorize cp thefuck git per-directory-history python sudo systemd vi-mode virtualenwrapper z)
+#plugins=(thefuck archlinux command-not-found autojump battery colored-man colorize cp git per-directory-history python sudo systemd vi-mode virtualenwrapper z)
+plugins=(archlinux command-not-found autojump battery colored-man colorize cp git \
+         per-directory-history python sudo systemd vi-mode virtualenwrapper z zsh-syntax-highlighting)
+alias fuck='eval $(thefuck $(fc -ln | tail -n 2 |head -n 1)); fc -R'
+    # because per-directory-history action, the fuck command need to change a bit.
 # vim-interaction)
 
 # some basic stuffs
