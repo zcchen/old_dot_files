@@ -12,8 +12,10 @@ set visualbell
 set autocomplete
 set wildmode=list:longest,full
 
-noremap j 5j
-noremap k 5k
+nnoremap j 5j
+nnoremap k 5k
+nnoremap <PageUp> <C-u>
+nnoremap <PageDown> <C-d>
 
 let mapleader = "\"
 
