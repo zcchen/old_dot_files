@@ -32,7 +32,7 @@ if [[ ! ${go_flag} ]]; then
 fi
 
 while [[ ${go_flag} ]]; do
-    scanimage --device ${SCANNER} --format=png --resolution 300 --mode color > ${_dir_}/${i}.png
+    scanimage --device ${SCANNER} --format=png --resolution 600 --mode color > ${_dir_}/${i}.png
     read_flag "Scan next page."
     i=$(( ${i} + 1))
     if [[ ! ${go_flag} ]]; then
