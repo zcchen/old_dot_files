@@ -19,6 +19,7 @@ alias w3m='w3m -cookie -graph -F -num'
 #alias pacman='sudo pacman'
 function pacman() {
     if [[ $1 == '-Syu' ]]; then
+        command sudo paccache -r -k 1
         command sudo pkgfile -u -v -z
         command sudo pacman "$@"
     else
