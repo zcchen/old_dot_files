@@ -1,3 +1,4 @@
+#!/usr/bin/env xdg-open
 [Desktop Entry]
 Categories=System;Utility;
 Comment[zh_CN]=启动输入法
