@@ -1,4 +1,5 @@
 " --------- manager of vim plugin -------
+set rtp+=~/.vim/bundle/vundle
 set nocompatible               " be iMproved and Disable vi-compatibility
 filetype off                   " required!
 call vundle#rc()

@@ -54,9 +54,9 @@ set showcmd         " Show the input command in status line
 set showmode
 set cursorline      " make the entire line with underline
 set scrolloff=3     " at least 3 rows below cursor
-set ballooneval     " balloon tips
-set balloondelay=100
-set balloonexpr="textstring"
+"set ballooneval     " balloon tips
+"set balloondelay=100
+"set balloonexpr="textstring"
 set showmatch           " 插入括号时，短暂地跳转到匹配的对应括号
 set matchtime=2         " 短暂跳转到匹配括号的时间
 if has('multi_byte') && v:version > 601
