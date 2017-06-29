@@ -1,22 +1,14 @@
-#export XMODIFIERS="@im=fcitx"
-##export XIM="fcitx"
-##export XINPUT="xim"
-##export XIM_PROGRAM="fcitx -d"
-#export QT_IM_MODULE=fcitx
-#export GTK_IM_MODULE=fcitx
-##export QT_IM_MODULE=xim
-
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 
 export PATH="$PATH:$HOME/.bash"
-export PATH="$PATH:/opt/dassault-systemes/DraftSight/Linux/"
-export PATH="$PATH:/opt/android-sdk/tools:/opt/java/bin"
-export PATH="$PATH:/opt/android-sdk/platform-tools/"
-export PATH="$PATH:/opt/matlab/R2013a/bin/"
-export PATH="$PATH:$HOME/.cabal/bin/"
+#export PATH="$PATH:/opt/dassault-systemes/DraftSight/Linux/"
+#export PATH="$PATH:/opt/android-sdk/tools:/opt/java/bin"
+#export PATH="$PATH:/opt/android-sdk/platform-tools/"
+#export PATH="$PATH:/opt/matlab/R2013a/bin/"
+#export PATH="$PATH:$HOME/.cabal/bin/"
 
 #alias steam="proxychains steam"
 
-~/.bash/exec_folder_all.sh ~/.config/autostart/
+#~/.bash/exec_folder_all.sh ~/.config/autostart/
